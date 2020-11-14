@@ -6,9 +6,9 @@ package ehu.isad;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AppTest {
+public class WhatWebTest {
     @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
+        WhatWeb classUnderTest = new WhatWeb();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
 }
