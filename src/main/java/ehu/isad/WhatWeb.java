@@ -3,12 +3,39 @@
  */
 package ehu.isad;
 
+import ehu.isad.Controllers.UI.WhatWebKud;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+import static javafx.application.Application.launch;
+
 public class WhatWeb {
-    public String getGreeting() {
-        return "Hello world.";
+
+    private Stage stage;
+    private Parent nagusiaUI;
+    private WhatWebKud whatWebKud;
+
+
+    public void start(Stage primaryStage) throws Exception {
+
+        stage = primaryStage;
+        pantailakKargatu();
+        stage.setScene(new Scene(nagusiaUI));
+        stage.show();
+    }
+
+    private void pantailakKargatu() throws IOException {
+        FXMLLoader loaderNagusia = new FXMLLoader(getClass().getResource("/WhatWeb.fxml"));
+        nagusiaUI = (Parent) loaderNagusia.load();
+        whatWebKud = loaderNagusia.getController();
+        whatWebKud.setMainApp(this);
     }
 
     public static void main(String[] args) {
-        System.out.println(new WhatWeb().getGreeting());
+        launch(args);
     }
 }
