@@ -118,6 +118,24 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
+            <GridPane fx:id="pnWhatWeb" alignment="TOP_RIGHT" prefHeight="233.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="33.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="10.0" prefWidth="497.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="165.0" valignment="TOP" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" GridPane.halignment="RIGHT" />
+                  <TextField fx:id="textURL" maxWidth="-Infinity" prefHeight="25.0" prefWidth="481.0" GridPane.columnIndex="1" />
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <TextArea fx:id="textAreaLog" maxWidth="-Infinity" prefHeight="167.0" prefWidth="481.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnScan" mnemonicParsing="false" stylesheets="@css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+               </children>
+            </GridPane>
             <GridPane fx:id="pnCMS" prefHeight="274.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -162,24 +180,6 @@
                         </Button>
                      </children>
                   </GridPane>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnWhatWeb" alignment="TOP_RIGHT" prefHeight="233.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="33.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="10.0" prefWidth="497.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="165.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" GridPane.halignment="RIGHT" />
-                  <TextField fx:id="textURL" maxWidth="-Infinity" prefHeight="25.0" prefWidth="481.0" GridPane.columnIndex="1" />
-                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <TextArea fx:id="textAreaLog" maxWidth="-Infinity" prefHeight="167.0" prefWidth="481.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="btnScan" mnemonicParsing="false" stylesheets="@css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                </children>
             </GridPane>
          </children>
