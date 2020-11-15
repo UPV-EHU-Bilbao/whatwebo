@@ -133,7 +133,7 @@
                   <TextField fx:id="textURL" maxWidth="-Infinity" prefHeight="25.0" prefWidth="481.0" GridPane.columnIndex="1" />
                   <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <TextArea fx:id="textAreaLog" maxWidth="-Infinity" prefHeight="167.0" prefWidth="481.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="btnScan" mnemonicParsing="false" stylesheets="@css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                  <Button fx:id="btnScan" mnemonicParsing="false" onAction="#onClickScan" stylesheets="@css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                </children>
             </GridPane>
             <GridPane fx:id="pnCMS" prefHeight="274.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
