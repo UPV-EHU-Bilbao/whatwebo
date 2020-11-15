@@ -4,16 +4,18 @@
 package ehu.isad;
 
 import ehu.isad.Controllers.UI.WhatWebKud;
+import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 import static javafx.application.Application.launch;
 
-public class WhatWeb {
+public class WhatWeb extends Application {
 
     private Stage stage;
     private Parent nagusiaUI;
@@ -23,6 +25,7 @@ public class WhatWeb {
     public void start(Stage primaryStage) throws Exception {
 
         stage = primaryStage;
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         pantailakKargatu();
         stage.setScene(new Scene(nagusiaUI));
         stage.show();
