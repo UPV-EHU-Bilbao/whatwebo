@@ -21,8 +21,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="440.0" prefWidth="726.0" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WhatWebKud">
+<AnchorPane prefHeight="440.0" prefWidth="726.0" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WhatWebKud">
    <children>
       <VBox prefHeight="440.0" prefWidth="196.0" style="-fx-background-color: #3F2B63;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -62,7 +61,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="btnCMS" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" text="CMS">
+            <Button fx:id="btnCMS" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@css/fullpackstyling.css" text="CMS">
                <graphic>
                   <FontAwesomeIconView />
                </graphic>
@@ -73,7 +72,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnServer" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" text="Server">
+            <Button fx:id="btnServer" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@css/fullpackstyling.css" text="Server">
                <graphic>
                   <FontAwesomeIconView fill="#00c8ff" glyphName="CLOUD" />
                </graphic>
@@ -81,9 +80,9 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnWhatWeb" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" text="WhatWeb">
+            <Button fx:id="btnWhatWeb" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@css/fullpackstyling.css" text="WhatWeb">
                <graphic>
-                  <FontAwesomeIconView glyphName="GEAR" />
+                  <FontAwesomeIconView glyphName="GEAR" text="" />
                </graphic>
                <font>
                   <Font name="System Bold" size="11.0" />
@@ -119,24 +118,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <GridPane fx:id="pnWhatWeb" alignment="TOP_RIGHT" prefHeight="233.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="33.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="10.0" prefWidth="497.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="165.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" GridPane.halignment="RIGHT" />
-                  <TextField fx:id="textURL" maxWidth="-Infinity" prefHeight="25.0" prefWidth="481.0" GridPane.columnIndex="1" />
-                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <TextArea fx:id="textAreaLog" maxWidth="-Infinity" prefHeight="167.0" prefWidth="481.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button fx:id="btnScan" mnemonicParsing="false" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-               </children>
-            </GridPane>
             <GridPane fx:id="pnCMS" prefHeight="274.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -146,7 +127,7 @@
                 <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="209.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="238.0" prefWidth="530.0" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" GridPane.rowIndex="1">
+                  <TableView prefHeight="238.0" prefWidth="530.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn prefWidth="75.0" text="URL" />
                       <TableColumn fx:id="tbUrl" prefWidth="132.0" text="CMS" />
@@ -170,8 +151,8 @@
                      <children>
                         <FontAwesomeIconView glyphName="SEARCH" size="20" wrappingWidth="23.0" />
                         <TextField fx:id="textFilter" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" GridPane.columnIndex="1" />
-                        <ComboBox fx:id="comboZerbitzua" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: #000000;" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" GridPane.columnIndex="2" />
-                        <Button fx:id="btnUrl" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #3F2B63;" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" text="Add url" textFill="#030303" GridPane.columnIndex="3">
+                        <ComboBox fx:id="comboZerbitzua" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="2" />
+                        <Button fx:id="btnUrl" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #3F2B63;" stylesheets="@css/fullpackstyling.css" text="Add url" textFill="#030303" GridPane.columnIndex="3">
                            <graphic>
                               <FontAwesomeIconView glyphName="PLUS" />
                            </graphic>
@@ -181,6 +162,24 @@
                         </Button>
                      </children>
                   </GridPane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnWhatWeb" alignment="TOP_RIGHT" prefHeight="233.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="33.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="10.0" prefWidth="497.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="165.0" valignment="TOP" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" GridPane.halignment="RIGHT" />
+                  <TextField fx:id="textURL" maxWidth="-Infinity" prefHeight="25.0" prefWidth="481.0" GridPane.columnIndex="1" />
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <TextArea fx:id="textAreaLog" maxWidth="-Infinity" prefHeight="167.0" prefWidth="481.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="btnScan" mnemonicParsing="false" stylesheets="@css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                </children>
             </GridPane>
          </children>
