@@ -97,7 +97,7 @@
                   <Font name="Caladea Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="lblMotak" layoutX="39.0" layoutY="10.0" prefHeight="39.0" prefWidth="416.0" text="WordPress, Joomla, phpMyAdmin, Drupal" textFill="#141313">
+            <Label fx:id="lblMotak" layoutX="39.0" layoutY="10.0" prefHeight="39.0" prefWidth="416.0" text="WordPress, Joomla, phpMyAdmin, Drupal" textFill="#fffdfd">
                <font>
                   <Font name="Caladea Bold" size="14.0" />
                </font>
@@ -145,7 +145,7 @@
                 <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="209.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="238.0" prefWidth="530.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
+                  <TableView prefHeight="700.0" prefWidth="530.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn prefWidth="75.0" text="URL" />
                       <TableColumn fx:id="tbUrl" prefWidth="132.0" text="CMS" />

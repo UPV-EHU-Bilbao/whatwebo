@@ -2,6 +2,7 @@ package ehu.isad.Controllers.UI;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import ehu.isad.WhatWeb;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -91,14 +92,40 @@ public class WhatWebKud implements Initializable {
         System.exit(0);
     }
 
-    @FXML
-    void onClickScan(ActionEvent event) {
-        String newLine = System.getProperty("line.separator");
-        textAreaLog.setText( allProcesses().stream()
-                .collect(Collectors.joining(newLine)) );
+//    @FXML
+//    void onClickScan(ActionEvent event) {
+//        String newLine = System.getProperty("line.separator");
+//        textAreaLog.setText( allProcesses().stream()
+//                .collect(Collectors.joining(newLine)) );
+//    }
 
-    }
+        @FXML
+        void onClickScan(ActionEvent event) {
 
+            textAreaLog.setWrapText(true);
+            textAreaLog.setText("Kargatzen. Itxaron, mesedez....");
+
+
+            Thread taskThread = new Thread(() -> {
+
+                String newLine = System.getProperty("line.separator");
+                final StringBuilder emaitza = new StringBuilder();
+                allProcesses().forEach(line -> {
+                    emaitza.append(line + newLine);
+                });
+
+                Platform.runLater(() -> {
+                    textAreaLog.setText(emaitza.toString());
+
+                    // txertatu();
+
+                });
+
+            });
+
+            taskThread.start();
+
+        }
 
     public List<String> allProcesses() {
         List<String> processes = new LinkedList<String>();
