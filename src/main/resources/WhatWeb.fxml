@@ -16,9 +16,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="440.0" prefWidth="726.0" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WhatWebKud">
@@ -27,41 +24,15 @@
          <children>
             <Pane prefHeight="165.0" prefWidth="196.0">
                <children>
-                  <FontAwesomeIconView glyphName="XING" layoutX="26.0" layoutY="85.0" size="50">
-                     <selectionFill>
-                        <RadialGradient centerX="0.4888888888888889" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="WHITE" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </selectionFill>
-                     <fill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="BLACK" offset="0.6091954022988505" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </fill>
-                  </FontAwesomeIconView>
-                  <Label layoutX="66.0" layoutY="68.0" prefHeight="61.0" prefWidth="98.0" text="WhatWebFX">
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startX="0.4380952380952381">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
+                  <FontAwesomeIconView fill="WHITE" glyphName="XING" layoutX="26.0" layoutY="85.0" size="50" />
+                  <Label layoutX="66.0" layoutY="68.0" prefHeight="61.0" prefWidth="98.0" text="WhatWebFX" textFill="WHITE">
                      <font>
                         <Font name="Caladea Bold" size="17.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="btnCMS" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" stylesheets="@css/fullpackstyling.css" text="CMS">
+            <Button fx:id="btnCMS" blendMode="MULTIPLY" mnemonicParsing="false" onAction="#handleClicks" prefHeight="61.0" prefWidth="199.0" style="-fx-background-color: ;" stylesheets="@css/fullpackstyling.css" text="CMS">
                <graphic>
                   <FontAwesomeIconView />
                </graphic>
@@ -92,12 +63,12 @@
       </VBox>
       <Pane fx:id="pnBack" layoutX="196.0" layoutY="49.0" prefHeight="82.0" prefWidth="530.0" style="-fx-background-color: #3F2B63;">
          <children>
-            <Label fx:id="lblCMS" layoutX="39.0" layoutY="29.0" prefHeight="39.0" prefWidth="98.0" text="CMS" textFill="#111010">
+            <Label fx:id="lblCMS" layoutX="39.0" layoutY="29.0" prefHeight="39.0" prefWidth="98.0" text="CMS" textFill="WHITE">
                <font>
                   <Font name="Caladea Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="lblMotak" layoutX="39.0" layoutY="10.0" prefHeight="39.0" prefWidth="416.0" text="WordPress, Joomla, phpMyAdmin, Drupal" textFill="#141313">
+            <Label fx:id="lblMotak" layoutX="39.0" layoutY="10.0" prefHeight="39.0" prefWidth="416.0" text="WordPress, Joomla, phpMyAdmin, Drupal" textFill="WHITE">
                <font>
                   <Font name="Caladea Bold" size="14.0" />
                </font>
@@ -170,9 +141,9 @@
                         <FontAwesomeIconView glyphName="SEARCH" size="20" wrappingWidth="23.0" />
                         <TextField fx:id="textFilter" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" GridPane.columnIndex="1" />
                         <ComboBox fx:id="comboZerbitzua" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="2" />
-                        <Button fx:id="btnUrl" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #3F2B63;" stylesheets="@css/fullpackstyling.css" text="Add url" textFill="#030303" GridPane.columnIndex="3">
+                        <Button fx:id="btnUrl" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #3F2B63;" stylesheets="@css/fullpackstyling.css" text="Add url" textFill="WHITE" GridPane.columnIndex="3">
                            <graphic>
-                              <FontAwesomeIconView glyphName="PLUS" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
                            </graphic>
                            <font>
                               <Font name="System Bold" size="11.0" />
