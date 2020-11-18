@@ -92,40 +92,31 @@ public class WhatWebKud implements Initializable {
         System.exit(0);
     }
 
-//    @FXML
-//    void onClickScan(ActionEvent event) {
-//        String newLine = System.getProperty("line.separator");
-//        textAreaLog.setText( allProcesses().stream()
-//                .collect(Collectors.joining(newLine)) );
-//    }
+    @FXML
+    void onClickScan(ActionEvent event) {
 
-        @FXML
-        void onClickScan(ActionEvent event) {
-
-            textAreaLog.setWrapText(true);
-            textAreaLog.setText("Kargatzen. Itxaron, mesedez....");
+        textAreaLog.setWrapText(true);
+        textAreaLog.setText("Kargatzen. Itxaron, mesedez....");
 
 
-            Thread taskThread = new Thread(() -> {
+        Thread taskThread = new Thread(() -> {
 
-                String newLine = System.getProperty("line.separator");
-                final StringBuilder emaitza = new StringBuilder();
-                allProcesses().forEach(line -> {
-                    emaitza.append(line + newLine);
-                });
+            String newLine = System.getProperty("line.separator");
+            final StringBuilder emaitza = new StringBuilder();
+            allProcesses().forEach(line -> {
+                emaitza.append(line + newLine);
+            });
 
-                Platform.runLater(() -> {
-                    textAreaLog.setText(emaitza.toString());
+            Platform.runLater(() -> {
+                textAreaLog.setText(emaitza.toString());
 
-                    // txertatu();
-
-                });
+                // txertatu();
 
             });
 
-            taskThread.start();
-
-        }
+        });
+        taskThread.start();
+    }
 
     public List<String> allProcesses() {
         List<String> processes = new LinkedList<String>();
