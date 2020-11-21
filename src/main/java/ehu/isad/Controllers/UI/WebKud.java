@@ -1,5 +1,6 @@
 package ehu.isad.Controllers.UI;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,14 +34,32 @@ public class WebKud implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        textAreaLog.setWrapText(true);
 
     }
+
     @FXML
     void onClickScan(ActionEvent event) {
-        String newLine = System.getProperty("line.separator");
-        textAreaLog.setText( allProcesses().stream()
-                .collect(Collectors.joining(newLine)) );
+        textAreaLog.setWrapText(true);
+        textAreaLog.setText("Kargatzen. Itxaron, mesedez....");
+
+
+        Thread taskThread = new Thread(() -> {
+
+            String newLine = System.getProperty("line.separator");
+            final StringBuilder emaitza = new StringBuilder();
+            allProcesses().forEach(line -> {
+                emaitza.append(line + newLine);
+            });
+
+            Platform.runLater(() -> {
+                textAreaLog.setText(emaitza.toString());
+
+                // txertatu();
+
+            });
+
+        });
+        taskThread.start();
 
     }
 
