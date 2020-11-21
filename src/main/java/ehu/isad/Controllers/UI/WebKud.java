@@ -13,10 +13,10 @@ import javafx.scene.layout.GridPane;
 
 import java.io.*;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
-import java.util.ResourceBundle;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class WebKud implements Initializable {
@@ -57,6 +57,7 @@ public class WebKud implements Initializable {
                 textAreaLog.setText(emaitza.toString());
 
                 try {
+//                    sortuFitx();
                     txertatu();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -105,8 +106,25 @@ public class WebKud implements Initializable {
         File f=new File(dbpath);
         BufferedReader bf = new BufferedReader(new FileReader(f));
         WebDBKud.getInstance().sartuSQLite(bf);
-
+        ezabatuFitx();
     }
+
+    private void ezabatuFitx() throws IOException {
+        Properties prp= Utils.lortuEzarpenak();
+        String dbpath=prp.getProperty("dbmysqlpath");
+        File f=new File(dbpath);
+        PrintWriter writer = new PrintWriter(f);
+        writer.print("");
+        writer.close();
+        f.delete();
+    }
+
+//    private void sortuFitx() throws IOException {
+//        Properties prp= Utils.lortuEzarpenak();
+//        String dbpath=prp.getProperty("dbmysqlpath");
+//        File f=new File(dbpath);
+//        f.createNewFile();
+//    }
 
     public WebKud() {
         System.out.println("web inst");

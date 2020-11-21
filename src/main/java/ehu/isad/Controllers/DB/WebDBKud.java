@@ -19,14 +19,12 @@ public class WebDBKud {
     public void sartuSQLite(BufferedReader bf) throws IOException {
 
         String query;
-        DBKudeatzaile dbKudeatzaile;
+        DBKudeatzaile dbKudeatzaile=DBKudeatzaile.getInstantzia();
         String line;
 
         while((line=bf.readLine())!=null){
             line=line.replace("IGNORE","OR IGNORE");
-
             query= line;
-            dbKudeatzaile = DBKudeatzaile.getInstantzia();
             dbKudeatzaile.execSQL(query);
         }
     }
