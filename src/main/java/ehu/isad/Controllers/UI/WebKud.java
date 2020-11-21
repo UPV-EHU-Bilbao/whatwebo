@@ -1,5 +1,7 @@
 package ehu.isad.Controllers.UI;
 
+import ehu.isad.Controllers.DB.WebDBKud;
+import ehu.isad.Utils.Utils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,12 +11,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class WebKud implements Initializable {
@@ -54,7 +56,12 @@ public class WebKud implements Initializable {
             Platform.runLater(() -> {
                 textAreaLog.setText(emaitza.toString());
 
-                // txertatu();
+                try {
+//                    sortuFitx();
+                    txertatu();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             });
 
@@ -69,12 +76,15 @@ public class WebKud implements Initializable {
         try {
             String line;
             Process p = null;
+            Properties prp= Utils.lortuEzarpenak();
+            String dbpath=prp.getProperty("dbmysqlpath");
+
             if(System.getProperty("os.name").toLowerCase().contains("win")) {
                 p = Runtime.getRuntime().exec
                         (System.getenv("windir") +"\\system32\\"+"" +
-                                "wsl whatweb --color=never "+this.textURL.getText());
+                                "wsl whatweb --color=never --log-sql="+ dbpath + " " + this.textURL.getText());
             } else {
-                p = Runtime.getRuntime().exec("whatweb --color=never "+this.textURL.getText());
+                p = Runtime.getRuntime().exec("whatweb --color=never --log-sql="+ dbpath + " " + this.textURL.getText());
             }
             BufferedReader input =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -88,6 +98,34 @@ public class WebKud implements Initializable {
 
         return processes;
     }
+
+    private void txertatu() throws IOException {
+
+        Properties prp= Utils.lortuEzarpenak();
+        String dbpath=prp.getProperty("dbmysqlpath");
+        File f=new File(dbpath);
+        BufferedReader bf = new BufferedReader(new FileReader(f));
+        WebDBKud.getInstance().sartuSQLite(bf);
+        ezabatuFitx();
+    }
+
+    private void ezabatuFitx() throws IOException {
+        Properties prp= Utils.lortuEzarpenak();
+        String dbpath=prp.getProperty("dbmysqlpath");
+        File f=new File(dbpath);
+        PrintWriter writer = new PrintWriter(f);
+        writer.print("");
+        writer.close();
+        f.delete();
+    }
+
+//    private void sortuFitx() throws IOException {
+//        Properties prp= Utils.lortuEzarpenak();
+//        String dbpath=prp.getProperty("dbmysqlpath");
+//        File f=new File(dbpath);
+//        f.createNewFile();
+//    }
+
     public WebKud() {
         System.out.println("web inst");
     }
