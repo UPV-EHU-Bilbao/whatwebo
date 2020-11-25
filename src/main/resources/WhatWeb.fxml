@@ -94,13 +94,13 @@
       <StackPane layoutX="196.0" layoutY="154.0" prefHeight="287.0" prefWidth="530.0">
 
               <AnchorPane fx:id="serverpane">
-                  <fx:include source="./Server.fxml" />
+                  <fx:include source="./Server.fxml" fx:id="server" />
               </AnchorPane>
               <AnchorPane fx:id="webpane">
-                  <fx:include source="./Web.fxml" />
+                  <fx:include source="./Web.fxml" fx:id="web"/>
               </AnchorPane>
               <AnchorPane fx:id="cmspane" prefHeight="400.0" prefWidth="524.0">
-                  <fx:include source="./CMS.fxml" />
+                  <fx:include source="./CMS.fxml" fx:id="cms"/>
               </AnchorPane>
 
       </StackPane>
