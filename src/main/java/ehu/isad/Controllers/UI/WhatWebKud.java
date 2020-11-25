@@ -43,6 +43,15 @@ public class WhatWebKud {
     @FXML
     private AnchorPane cmspane;
 
+    @FXML
+    private CMSKud cmsController ;
+
+    @FXML
+    private ServerKud serverController ;
+
+    @FXML
+    private WebKud webController ;
+
     private WhatWeb main;
 
     @FXML

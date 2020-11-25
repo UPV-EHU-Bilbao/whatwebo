@@ -3,6 +3,9 @@
  */
 package ehu.isad;
 
+import ehu.isad.Controllers.UI.CMSKud;
+import ehu.isad.Controllers.UI.ServerKud;
+import ehu.isad.Controllers.UI.WebKud;
 import ehu.isad.Controllers.UI.WhatWebKud;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
 import java.io.IOException;
 
@@ -20,6 +24,10 @@ public class WhatWeb extends Application {
     private Stage stage;
     private Parent nagusiaUI;
     private WhatWebKud whatWebKud;
+    private CMSKud cmsKud;
+    private ServerKud serverKud;
+    private WebKud webKud;
+
 
 
     public void start(Stage primaryStage) throws Exception {
@@ -33,6 +41,33 @@ public class WhatWeb extends Application {
 
     private void pantailakKargatu() throws IOException {
         FXMLLoader loaderNagusia = new FXMLLoader(getClass().getResource("/WhatWeb.fxml"));
+        whatWebKud = new WhatWebKud();
+        serverKud = new ServerKud();
+        webKud = new WebKud();
+        cmsKud = new CMSKud();
+
+        Callback<Class<?>, Object> controllerFactory = type -> {
+            if (type == WhatWebKud.class) {
+                return whatWebKud ;
+            } else if (type == CMSKud.class) {
+                return cmsKud ;
+            } else if (type == WebKud.class) {
+                return webKud;
+            } else if (type == ServerKud.class){
+                return serverKud;
+            }
+                // default behavior for controllerFactory:
+                try {
+                    return type.newInstance();
+                } catch (Exception exc) {
+                    exc.printStackTrace();
+                    throw new RuntimeException(exc); // fatal, just bail...
+                }
+            };
+
+
+        loaderNagusia.setControllerFactory(controllerFactory);
+
         nagusiaUI = (Parent) loaderNagusia.load();
         whatWebKud = loaderNagusia.getController();
         whatWebKud.setMainApp(this);
