@@ -57,7 +57,6 @@ public class WebKud implements Initializable {
                 textAreaLog.setText(emaitza.toString());
 
                 try {
-//                    sortuFitx();
                     txertatu();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -77,14 +76,15 @@ public class WebKud implements Initializable {
             String line;
             Process p = null;
             Properties prp= Utils.lortuEzarpenak();
-            String dbpath=prp.getProperty("dbmysqlpath");
+            String dbmysqlpath=prp.getProperty("dbmysqlpath");
 
             if(System.getProperty("os.name").toLowerCase().contains("win")) {
+                dbmysqlpath=dbmysqlpath.replace("C:/","/mnt/c/");
                 p = Runtime.getRuntime().exec
                         (System.getenv("windir") +"\\system32\\"+"" +
-                                "wsl whatweb --color=never --log-sql="+ dbpath + " " + this.textURL.getText());
+                                "wsl whatweb --color=never --log-sql="+ dbmysqlpath + " " + this.textURL.getText());
             } else {
-                p = Runtime.getRuntime().exec("whatweb --color=never --log-sql="+ dbpath + " " + this.textURL.getText());
+                p = Runtime.getRuntime().exec("whatweb --color=never --log-sql="+ dbmysqlpath + " " + this.textURL.getText());
             }
             BufferedReader input =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -102,10 +102,11 @@ public class WebKud implements Initializable {
     private void txertatu() throws IOException {
 
         Properties prp= Utils.lortuEzarpenak();
-        String dbpath=prp.getProperty("dbmysqlpath");
-        File f=new File(dbpath);
+        String dbmysqlpath=prp.getProperty("dbmysqlpath");
+        File f=new File(dbmysqlpath);
         BufferedReader bf = new BufferedReader(new FileReader(f));
         WebDBKud.getInstance().sartuSQLite(bf);
+        bf.close();
         ezabatuFitx();
     }
 
@@ -113,18 +114,8 @@ public class WebKud implements Initializable {
         Properties prp= Utils.lortuEzarpenak();
         String dbpath=prp.getProperty("dbmysqlpath");
         File f=new File(dbpath);
-        PrintWriter writer = new PrintWriter(f);
-        writer.print("");
-        writer.close();
         f.delete();
     }
-
-//    private void sortuFitx() throws IOException {
-//        Properties prp= Utils.lortuEzarpenak();
-//        String dbpath=prp.getProperty("dbmysqlpath");
-//        File f=new File(dbpath);
-//        f.createNewFile();
-//    }
 
     public WebKud() {
         System.out.println("web inst");
