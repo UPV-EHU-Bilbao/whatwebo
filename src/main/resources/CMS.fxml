@@ -24,12 +24,12 @@
                 <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="209.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <TableView prefHeight="238.0" prefWidth="530.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
+                <TableView fx:id="tCMS" prefHeight="238.0" prefWidth="530.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="URL" />
-                        <TableColumn fx:id="tbUrl" prefWidth="132.0" text="CMS" />
-                        <TableColumn prefWidth="132.0" text="Version" />
-                        <TableColumn prefWidth="75.0" text="Last Update" />
+                        <TableColumn fx:id="cURL" prefWidth="75.0" text="URL" />
+                        <TableColumn fx:id="cCMS" prefWidth="132.0" text="CMS" />
+                        <TableColumn fx:id="cVersion" prefWidth="132.0" text="Version" />
+                        <TableColumn fx:id="cLastUpdate" prefWidth="75.0" text="Last Update" />
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
