@@ -31,6 +31,9 @@ public class WebDBKud {
             line=line.replace("IGNORE","OR IGNORE");
             query= line;
             dbKudeatzaile.execSQL(query);
+
+            // if line contains ikasten.io
+            //    update targets set azkenEguneraketa=now()
         }
     }
 
