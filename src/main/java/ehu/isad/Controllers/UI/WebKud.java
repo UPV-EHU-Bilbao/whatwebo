@@ -108,6 +108,7 @@ public class WebKud implements Initializable {
         WebDBKud.getInstance().sartuSQLite(bf);
         bf.close();
         ezabatuFitx();
+
     }
 
     private void ezabatuFitx() throws IOException {
