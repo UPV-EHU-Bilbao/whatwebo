@@ -1,6 +1,8 @@
 package ehu.isad.Controllers.UI;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import ehu.isad.Controllers.DB.CMSDBKud;
+import ehu.isad.Model.Eskaneoa;
 import ehu.isad.WhatWeb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+
+import java.util.List;
 
 public class WhatWebKud {
 
@@ -57,6 +61,7 @@ public class WhatWebKud {
     @FXML
     void handleClicks(ActionEvent event) {
         if(event.getSource()== btnCMS){
+            List<Eskaneoa> scans = CMSDBKud.getInstance().eskaneoInfoLortu();
             lblMotak.setText("WordPress, Joomla, phpMyAdmin, Drupal");
             lblCMS.setText("CMS");
             lblCMS.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));
