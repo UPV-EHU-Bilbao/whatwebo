@@ -1,20 +1,54 @@
 .button
 {
-    -fx-background-color : #F3F3F3;
+    -fx-background-color : #3F2B63;
 }
 .button:hover
 {
-    -fx-background-color : #999999 ;
+    -fx-background-color : #2A1C42 ;
 }
 .button:pressed
 {
     -fx-background-color : #73A3EF ;
 }
+.button:focused
+{
+    -fx-background-color: #7156DD;
+    -fx-border-color: #CDD1D6;
+    -fx-border-width: 0px 0px 0px 3 px;
+}
+
+/*.date-picker .text-field {*/
+/*    -fx-control-inner-background: white ;*/
+/*}*/
+
+.date-picker > .text-field {
+    -fx-background-color: white;
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 2 0 0 2;
+}
+
+/*.date-picker:focused > .text-field,*/
+/*.date-picker > .text-field:focused {*/
+/*    -fx-background-color: white;*/
+/*    -fx-background-insets: 0 0 0 0, 0 0 0 0 , 0 0 0 0;*/
+/*    -fx-background-radius: 2 0 0 2, 1 0 0 1, 0;*/
+/*}*/
+
+/*.date-picker > .arrow-button {*/
+/*    -fx-padding: 0px;*/
+/*}*/
+
+/*.date-picker > .arrow-button > .arrow {*/
+/*    -fx-padding: 0px;*/
+/*}*/
+/*.date-picker > .date-picker-display-node {*/
+/*    -fx-background-insets: 1 1 1 1;*/
+/*}*/
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
-    -fx-background-color:   #810EB4;
+    -fx-background-color:  #7156DD;
 }
 .table-view .column-header .label{
 

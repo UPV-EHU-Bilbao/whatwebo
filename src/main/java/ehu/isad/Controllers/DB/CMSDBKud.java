@@ -5,6 +5,7 @@ import ehu.isad.Model.Eskaneoa;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CMSDBKud {
@@ -27,10 +28,23 @@ public class CMSDBKud {
     public List<Eskaneoa> eskaneoInfoLortu() {
         List<Eskaneoa> emaitza = new ArrayList<>();
         DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
-        String cmsMota = " AND s.string LIKE \""+cmsak[0]+"\" OR s.string LIKE \""+cmsak[1]
-                +"\" OR s.string LIKE \""+cmsak[2]+"\" OR s.string LIKE \""+cmsak[3]+"\"";
-        String query = "select s.string,s.version,t.target from scans s, targets t " +
-                "where s.target_id = t.target_id"+cmsMota+" GROUP BY(t.target_id)";
+        String cmsMota="";
+        for (int i=0;i<cmsak.length;i++) {
+            if (i == cmsak.length-1) {
+                cmsMota = cmsMota+" s.string LIKE '" + cmsak[i] + "'";
+            } else {
+                cmsMota = cmsMota+" s.string LIKE '" + cmsak[i] + "' OR";
+            }
+        }
+        String cmsNOTmota=cmsMota.replace("OR","AND");
+        cmsNOTmota=cmsNOTmota.replace("LIKE","NOT LIKE");
+
+        String query = "select s.string,s.version,t.target from targets as t " +
+                "LEFT JOIN scans as s ON s.target_id = t.target_id where ("+cmsMota+")" +
+                " GROUP BY(t.target_id) union select 'unknown 0',s.version,t.target " +
+                "from targets as t " +
+                "LEFT JOIN scans as s ON s.target_id = t.target_id where ("+cmsNOTmota+")" +
+                " GROUP BY(t.target_id)";
         ResultSet rs = dbkud.execSQL(query);
 
         try {
