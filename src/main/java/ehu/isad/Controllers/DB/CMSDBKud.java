@@ -50,10 +50,11 @@ public class CMSDBKud {
         try {
             while (rs.next()) {
 
-                String cms = rs.getString("string");
+                String cmsVersion = rs.getString("string");
                 String url = rs.getString("target");
-                String version = rs.getString("version");
-
+                String[] banatuta = cmsVersion.split(" ");
+                String cms = banatuta[0];
+                String version = banatuta[1];
                 Eskaneoa eskaneo = new Eskaneoa(url,cms,version);
                 emaitza.add(eskaneo);
             }
