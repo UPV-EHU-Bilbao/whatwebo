@@ -57,10 +57,10 @@ public class CMSKud implements Initializable {
     }
 
     private void hasieratuTaula(){
-        Eskaneoa esk=new Eskaneoa("uwu.com","owo","4.4");//proba
-        esk.setLastUpdate(new DatePicker());//proba
-        List<Eskaneoa> eskanList= new ArrayList<>();//CMSDBKud.getInstance().eskaneoInfoLortu();
-        eskanList.add(esk);//proba
+//        Eskaneoa esk=new Eskaneoa("uwu.com","owo","4.4");//proba
+//        esk.setLastUpdate(new DatePicker());//proba
+        List<Eskaneoa> eskanList= CMSDBKud.getInstance().eskaneoInfoLortu();
+        //eskanList.add(esk);//proba
         eskaneoak = FXCollections.observableArrayList(eskanList);
 
         tCMS.setEditable(true);
