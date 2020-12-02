@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="846.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controllers.ui.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="846.0" stylesheets="@css/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WhatWebKud">
    <VBox prefHeight="573.0" prefWidth="271.0" style="-fx-background-color: #3f2b63;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
       <Pane prefHeight="117.0" prefWidth="271.0">
          <FontAwesomeIconView fill="#fcfcfc" glyphName="XING" layoutX="59.0" layoutY="69.0" size="34" />
@@ -30,7 +30,7 @@
             </font>
          </Label>
       </Pane>
-      <Button fx:id="btnStudents" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="48.0" prefWidth="276.0" text="CMS" textFill="WHITE">
+      <Button fx:id="btnStudents" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="48.0" prefWidth="276.0" stylesheets="@css/fullpackstyling.css" text="CMS" textFill="WHITE">
          <graphic>
             <FontAwesomeIconView fill="#fcfcfc" size="15" />
          </graphic>
@@ -41,7 +41,7 @@
             <Font size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnFees" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="48.0" prefWidth="276.0" text="Server" textFill="WHITE">
+      <Button fx:id="btnFees" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="48.0" prefWidth="276.0" stylesheets="@css/fullpackstyling.css" text="Server" textFill="WHITE">
          <graphic>
             <FontAwesomeIconView fill="#fcfcfc" glyphName="CLOUD" size="15" />
          </graphic>
@@ -55,7 +55,7 @@
             <Insets />
          </VBox.margin>
       </Button>
-      <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="48.0" prefWidth="276.0" text="WhatWeb" textFill="WHITE">
+      <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="48.0" prefWidth="276.0" stylesheets="@css/fullpackstyling.css" text="WhatWeb" textFill="WHITE">
          <graphic>
             <FontAwesomeIconView fill="#fcfcfc" glyphName="GEAR" size="15" />
          </graphic>
@@ -141,7 +141,7 @@
             </Button>
          </HBox>
          <VBox alignment="TOP_RIGHT" prefHeight="359.0" prefWidth="569.0" GridPane.rowIndex="1">
-            <TableView fx:id="tbData" prefHeight="330.0" prefWidth="569.0" stylesheets="@../css/styles.css" tableMenuButtonVisible="true" GridPane.rowIndex="1">
+            <TableView fx:id="tbData" prefHeight="330.0" prefWidth="569.0" stylesheets="@css/fullpackstyling.css" tableMenuButtonVisible="true" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="url" prefWidth="121.0" text="URL" />
                   <TableColumn fx:id="cms" prefWidth="78.0" text="CMS" />
