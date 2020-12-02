@@ -19,10 +19,10 @@ public class CMSDBKud {
     }
 
     private CMSDBKud() {
-        cmsak[0] = "%WordPress%";
-        cmsak[1] = "%Joomla%";
-        cmsak[2] = "%phpMyAdmin%";
-        cmsak[3] = "%Drupal%";
+        cmsak[0] = "WordPress";
+        cmsak[1] = "Joomla";
+        cmsak[2] = "phpMyAdmin";
+        cmsak[3] = "Drupal";
     }
 
     public List<Eskaneoa> eskaneoInfoLortu() {
@@ -31,9 +31,9 @@ public class CMSDBKud {
         String cmsMota="";
         for (int i=0;i<cmsak.length;i++) {
             if (i == cmsak.length-1) {
-                cmsMota = cmsMota+" s.string LIKE '" + cmsak[i] + "'";
+                cmsMota = cmsMota+" s.string LIKE '%" + cmsak[i] + "%'";
             } else {
-                cmsMota = cmsMota+" s.string LIKE '" + cmsak[i] + "' OR";
+                cmsMota = cmsMota+" s.string LIKE '%" + cmsak[i] + "%' OR";
             }
         }
         String cmsNOTmota=cmsMota.replace("OR","AND");
@@ -51,6 +51,15 @@ public class CMSDBKud {
             while (rs.next()) {
 
                 String cmsVersion = rs.getString("string");
+                boolean aurkitua=false;
+                int auk=0;
+                while(!aurkitua && auk< cmsak.length){
+                    if(cmsVersion.indexOf(cmsak[auk])!=-1) {
+                        cmsVersion = cmsVersion.substring(cmsVersion.indexOf(cmsak[auk]));
+                        aurkitua=true;
+                    }
+                    auk++;
+                }
 //                 for auk
 //                    if cmsversion.contains(aukera)
 //                           cmsversion=aukera

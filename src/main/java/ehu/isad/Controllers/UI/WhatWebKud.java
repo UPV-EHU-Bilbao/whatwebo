@@ -61,7 +61,8 @@ public class WhatWebKud {
     @FXML
     void handleClicks(ActionEvent event) {
         if(event.getSource()== btnCMS){
-            List<Eskaneoa> scans = CMSDBKud.getInstance().eskaneoInfoLortu();
+            //List<Eskaneoa> scans = CMSDBKud.getInstance().eskaneoInfoLortu();
+            main.getCmsKud().hasieratuTaula();
             lblMotak.setText("WordPress, Joomla, phpMyAdmin, Drupal");
             lblCMS.setText("CMS");
             lblCMS.setBackground(new Background(new BackgroundFill(Color.rgb(63,43,99), CornerRadii.EMPTY, Insets.EMPTY)));

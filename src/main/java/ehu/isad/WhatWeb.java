@@ -29,6 +29,13 @@ public class WhatWeb extends Application {
     private ServerKud serverKud;
     private WebKud webKud;
 
+    public CMSKud getCmsKud() {
+        return cmsKud;
+    }
+
+    public ServerKud getServerKud() {
+        return serverKud;
+    }
 
     public void start(Stage primaryStage) throws Exception {
 

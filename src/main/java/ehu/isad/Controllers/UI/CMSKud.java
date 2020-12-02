@@ -56,7 +56,7 @@ public class CMSKud implements Initializable {
         System.out.println("cms inst");
     }
 
-    private void hasieratuTaula(){
+    public void hasieratuTaula(){
 //        Eskaneoa esk=new Eskaneoa("uwu.com","owo","4.4");//proba
 //        esk.setLastUpdate(new DatePicker());//proba
         List<Eskaneoa> eskanList= CMSDBKud.getInstance().eskaneoInfoLortu();
