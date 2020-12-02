@@ -5,29 +5,13 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="234.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WebKud">
+<AnchorPane prefHeight="354.0" prefWidth="604.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WebKud">
     <children>
-        <GridPane fx:id="pnWhatWeb" alignment="TOP_RIGHT" prefHeight="233.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="33.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.0" minWidth="10.0" prefWidth="497.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="165.0" valignment="TOP" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="213.0" minHeight="10.0" prefHeight="77.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" GridPane.halignment="RIGHT" />
-                <TextField fx:id="textURL" maxWidth="-Infinity" prefHeight="25.0" prefWidth="481.0" GridPane.columnIndex="1" />
-                <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                <TextArea fx:id="textAreaLog" maxWidth="-Infinity" prefHeight="167.0" prefWidth="481.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Button fx:id="btnScan" mnemonicParsing="false" onAction="#onClickScan" stylesheets="@css/fullpackstyling.css" text="SCAN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            </children>
-        </GridPane>
+          <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="11.0" layoutY="101.0" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" />
+          <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="12.0" layoutY="66.0" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" />
+          <TextField fx:id="textURL" layoutX="36.0" layoutY="62.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="524.0" />
+          <TextArea fx:id="textAreaLog" layoutX="36.0" layoutY="101.0" maxWidth="-Infinity" prefHeight="167.0" prefWidth="524.0" />
+          <Button fx:id="btnScan" layoutX="275.0" layoutY="294.0" mnemonicParsing="false" onAction="#onClickScan" stylesheets="@css/fullpackstyling.css" text="SCAN" textFill="WHITE" />
     </children>
 </AnchorPane>

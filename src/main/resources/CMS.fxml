@@ -12,54 +12,42 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="282.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.CMSKud">
+<AnchorPane prefHeight="326.0" prefWidth="605.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.CMSKud">
     <children>
-
-        <GridPane fx:id="pnCMS" prefHeight="274.0" prefWidth="530.0" style="-fx-background-color: #ffff;">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="215.0" minHeight="10.0" prefHeight="209.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <TableView fx:id="tCMS" prefHeight="238.0" prefWidth="530.0" stylesheets="@css/fullpackstyling.css" GridPane.rowIndex="1">
-                    <columns>
-                        <TableColumn fx:id="cURL" prefWidth="75.0" text="URL" />
-                        <TableColumn fx:id="cCMS" prefWidth="132.0" text="CMS" />
-                        <TableColumn fx:id="cVersion" prefWidth="132.0" text="Version" />
-                        <TableColumn fx:id="cLastUpdate" prefWidth="75.0" text="Last Update" />
-                    </columns>
-                    <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                    </columnResizePolicy>
-                </TableView>
-                <GridPane>
-                    <columnConstraints>
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="30.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="242.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="140.0" />
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="117.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <FontAwesomeIconView glyphName="SEARCH" size="20" wrappingWidth="23.0" />
-                        <TextField fx:id="textFilter" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" GridPane.columnIndex="1" />
-                        <ComboBox fx:id="comboZerbitzua" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="2" />
-                        <Button fx:id="btnUrl" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #3F2B63;" stylesheets="@css/fullpackstyling.css" text="Add url" textFill="#030303" GridPane.columnIndex="3">
-                            <graphic>
-                                <FontAwesomeIconView glyphName="PLUS" />
-                            </graphic>
-                            <font>
-                                <Font name="System Bold" size="11.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </GridPane>
-            </children>
-        </GridPane>
+          <GridPane layoutX="18.0" layoutY="31.0" prefHeight="47.0" prefWidth="569.0">
+              <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="30.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="259.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="149.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="117.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+              <children>
+                  <FontAwesomeIconView glyphName="SEARCH" size="20" wrappingWidth="23.0" />
+                  <TextField fx:id="textFilter" maxWidth="-Infinity" prefHeight="25.0" prefWidth="224.0" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="comboZerbitzua" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" stylesheets="@css/fullpackstyling.css" GridPane.columnIndex="2" />
+                  <Button fx:id="btnUrl" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #3F2B63;" stylesheets="@css/fullpackstyling.css" text="Add url" textFill="WHITE" GridPane.columnIndex="3">
+                      <graphic>
+                          <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
+                      </graphic>
+                      <font>
+                          <Font name="System Bold" size="11.0" />
+                      </font>
+                  </Button>
+              </children>
+          </GridPane>
+          <TableView fx:id="tCMS" layoutY="83.0" prefHeight="270.0" prefWidth="605.0" stylesheets="@css/fullpackstyling.css">
+              <columns>
+                  <TableColumn fx:id="cURL" prefWidth="75.0" text="URL" />
+                  <TableColumn fx:id="cCMS" prefWidth="132.0" text="CMS" />
+                  <TableColumn fx:id="cVersion" prefWidth="132.0" text="Version" />
+                  <TableColumn fx:id="cLastUpdate" prefWidth="75.0" text="Last Update" />
+              </columns>
+              <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+              </columnResizePolicy>
+          </TableView>
     </children>
 </AnchorPane>
