@@ -30,7 +30,6 @@ public class WhatWeb extends Application {
     private WebKud webKud;
 
 
-
     public void start(Stage primaryStage) throws Exception {
 
         stage = primaryStage;
