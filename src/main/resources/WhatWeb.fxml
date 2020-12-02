@@ -81,7 +81,7 @@
               <AnchorPane fx:id="webpane">
                   <fx:include fx:id="web" source="./Web.fxml" />
               </AnchorPane>
-              <AnchorPane fx:id="cmspane" prefHeight="400.0" prefWidth="524.0">
+              <AnchorPane fx:id="cmspane" prefHeight="369.0" prefWidth="605.0">
                   <fx:include fx:id="cms" source="./CMS.fxml" />
               </AnchorPane>
 

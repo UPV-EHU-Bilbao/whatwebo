@@ -19,10 +19,10 @@ public class CMSDBKud {
     }
 
     private CMSDBKud() {
-        cmsak[0] = "WordPress%";
-        cmsak[1] = "Joomla%";
-        cmsak[2] = "phpMyAdmin%";
-        cmsak[3] = "Drupal%";
+        cmsak[0] = "%WordPress%";
+        cmsak[1] = "%Joomla%";
+        cmsak[2] = "%phpMyAdmin%";
+        cmsak[3] = "%Drupal%";
     }
 
     public List<Eskaneoa> eskaneoInfoLortu() {
@@ -51,6 +51,9 @@ public class CMSDBKud {
             while (rs.next()) {
 
                 String cmsVersion = rs.getString("string");
+//                 for auk
+//                    if cmsversion.contains(aukera)
+//                           cmsversion=aukera
                 String url = rs.getString("target");
                 String[] banatuta = cmsVersion.split(" ");
                 String cms = banatuta[0];
