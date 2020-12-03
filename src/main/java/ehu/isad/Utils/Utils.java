@@ -2,6 +2,9 @@ package ehu.isad.Utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 public class Utils {
@@ -20,4 +23,5 @@ public class Utils {
 
         return properties;
     }
+
 }

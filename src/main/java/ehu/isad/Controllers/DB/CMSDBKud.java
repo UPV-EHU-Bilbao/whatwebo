@@ -1,9 +1,13 @@
 package ehu.isad.Controllers.DB;
 
 import ehu.isad.Model.Eskaneoa;
+import ehu.isad.Utils.Utils;
+import javafx.scene.control.DatePicker;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -77,5 +81,16 @@ public class CMSDBKud {
 
 
         return emaitza;
+    }
+    public void dataEguneratu(String pUrl, DatePicker pData){
+
+        LocalDate localDate= pData.getValue();
+        String dataString=localDate.toString();
+        Date date= Date.valueOf(dataString);
+        //Date dataDate= Utils.ParseFecha(dataString);
+        DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
+        String query = "UPDATE targets SET LastUpdate="+date+" WHERE target='"+pUrl+"';";
+        dbkud.execSQL(query);
+
     }
 }

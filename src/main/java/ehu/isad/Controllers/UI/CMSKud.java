@@ -2,10 +2,14 @@ package ehu.isad.Controllers.UI;
 
 import ehu.isad.Controllers.DB.CMSDBKud;
 import ehu.isad.Model.Eskaneoa;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -20,6 +24,7 @@ import javafx.util.converter.IntegerStringConverter;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -89,10 +94,23 @@ public class CMSKud implements Initializable {
         return sortedData;
     }
 
-    public void hasieratuTaula(){
+    @FXML
+    void onCommit(ActionEvent event) {
+        // Editagarria egin
+        cLastUpdate.setOnEditCommit(
+                t -> {
+                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
+                    eskaneoa.setLastUpdate(t.getNewValue());
+                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
+                });
+
+    }
+
+
+    public void hasieratuTaula() {
 //        Eskaneoa esk=new Eskaneoa("uwu.com","owo","4.4");//proba
 //        esk.setLastUpdate(new DatePicker());//proba
-        List<Eskaneoa> eskanList= CMSDBKud.getInstance().eskaneoInfoLortu();
+        List<Eskaneoa> eskanList = CMSDBKud.getInstance().eskaneoInfoLortu();
         //eskanList.add(esk);//proba
         eskaneoak = FXCollections.observableArrayList(eskanList);
 
@@ -106,15 +124,37 @@ public class CMSKud implements Initializable {
         //DATEPICKER
 
         //FILTROA
-        SortedList<Eskaneoa> sortedData=filtroa();
+        SortedList<Eskaneoa> sortedData = filtroa();
 
         // 5. Add sorted (and filtered) data to the table.
         tCMS.setItems(sortedData);
-
+        // Editagarria egin
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         hasieratuTaula();
+        cLastUpdate.setOnEditCommit(
+                t -> {
+                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
+                    eskaneoa.setLastUpdate(t.getNewValue());
+                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
+                });
+
+        this.cLastUpdate.getTableView().getItems().get().getLastUpdate().setOnShowing(event -> {
+            final TableView<T> tableView = getTableView();
+            tableView.getSelectionModel().select(getTableRow().getIndex());
+            tableView.edit(tableView.getSelectionModel().getSelectedIndex(), column);
+        });
+
+        this.colorPicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if(isEditing()) {
+                commitEdit(newValue);
+            }
+        });
+
+
+
     }
 }
