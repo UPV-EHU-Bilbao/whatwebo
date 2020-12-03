@@ -105,6 +105,7 @@ public class CMSKud implements Initializable {
 
         //DATEPICKER
 
+        //FILTROA
         SortedList<Eskaneoa> sortedData=filtroa();
 
         // 5. Add sorted (and filtered) data to the table.
