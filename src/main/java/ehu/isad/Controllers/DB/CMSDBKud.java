@@ -39,9 +39,9 @@ public class CMSDBKud {
         String cmsNOTmota=cmsMota.replace("OR","AND");
         cmsNOTmota=cmsNOTmota.replace("LIKE","NOT LIKE");
 
-        String query = "select s.string,s.version,t.target from targets as t " +
+        String query = "select s.string,s.version,t.target,t.LastUpdate from targets as t " +
                 "LEFT JOIN scans as s ON s.target_id = t.target_id where ("+cmsMota+")" +
-                " GROUP BY(t.target_id) union select 'unknown 0',s.version,t.target " +
+                " GROUP BY(t.target_id) union select 'unknown 0',s.version,t.target,t.LastUpdate " +
                 "from targets as t " +
                 "LEFT JOIN scans as s ON s.target_id = t.target_id where ("+cmsNOTmota+")" +
                 " GROUP BY(t.target_id)";
@@ -67,7 +67,8 @@ public class CMSDBKud {
                 String[] banatuta = cmsVersion.split(" ");
                 String cms = banatuta[0];
                 String version = banatuta[1];
-                Eskaneoa eskaneo = new Eskaneoa(url,cms,version);
+                String data = rs.getDate("LastUpdate").toString();
+                Eskaneoa eskaneo = new Eskaneoa(url,cms,version,data);
                 emaitza.add(eskaneo);
             }
         }catch (SQLException e){
