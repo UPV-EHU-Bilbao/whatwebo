@@ -4,6 +4,8 @@ import ehu.isad.Controllers.DB.CMSDBKud;
 import ehu.isad.Model.Eskaneoa;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -56,6 +58,37 @@ public class CMSKud implements Initializable {
         System.out.println("cms inst");
     }
 
+    private SortedList<Eskaneoa> filtroa(){
+        // 1. Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        textFilter.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(eskan -> {
+                // Hutsik badago, denak erakutsi
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Konparatu url bakoitza textFilter-ekin
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (eskan.getUrl().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filtroa bat egin url-arekin
+                }
+                return false; // Ez du bat egiten
+            });
+        });
+
+        // 3. Wrap the FilteredList in a SortedList.
+        SortedList<Eskaneoa> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(tCMS.comparatorProperty());
+
+        return sortedData;
+    }
+
     public void hasieratuTaula(){
 //        Eskaneoa esk=new Eskaneoa("uwu.com","owo","4.4");//proba
 //        esk.setLastUpdate(new DatePicker());//proba
@@ -70,9 +103,13 @@ public class CMSKud implements Initializable {
         cVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
         cLastUpdate.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
 
+        //DATEPICKER
 
+        SortedList<Eskaneoa> sortedData=filtroa();
 
-        tCMS.setItems(eskaneoak);
+        // 5. Add sorted (and filtered) data to the table.
+        tCMS.setItems(sortedData);
+
     }
 
     @Override

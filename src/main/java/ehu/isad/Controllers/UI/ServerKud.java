@@ -1,5 +1,6 @@
 package ehu.isad.Controllers.UI;
 
+import ehu.isad.Controllers.DB.ServerDBKud;
 import ehu.isad.Controllers.DB.WebDBKud;
 import ehu.isad.Model.Target;
 import javafx.collections.FXCollections;
@@ -38,7 +39,7 @@ public class ServerKud {
 
     private void txtAreaAktualizatu(){
 
-        List<Target> targets = WebDBKud.getInstance().targetLortu();
+        List<Target> targets = ServerDBKud.getInstance().targetLortu();
 
         String newLine = System.getProperty("line.separator");
         final StringBuilder emaitza = new StringBuilder();

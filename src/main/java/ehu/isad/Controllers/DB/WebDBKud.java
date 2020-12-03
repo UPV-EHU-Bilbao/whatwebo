@@ -36,30 +36,4 @@ public class WebDBKud {
             //    update targets set azkenEguneraketa=now()
         }
     }
-
-    public List<Target> targetLortu(){
-
-        List<Target> emaitza = new ArrayList<>();
-        DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
-
-        String query = "select * from targets";
-        ResultSet rs = dbkud.execSQL(query);
-
-        try {
-            while (rs.next()) {
-
-                int id = rs.getInt("target_id");
-                String target = rs.getString("target");
-                int status = rs.getInt("status");
-
-                Target targeta = new Target(id,target, status);
-                emaitza.add(targeta);
-            }
-        }catch (SQLException e){
-            System.err.println(e);
-        }
-
-
-        return emaitza;
-    }
 }
