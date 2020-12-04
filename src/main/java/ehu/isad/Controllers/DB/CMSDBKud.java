@@ -11,9 +11,11 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class CMSDBKud {
 
@@ -74,9 +76,9 @@ public class CMSDBKud {
                 String[] banatuta = cmsVersion.split(" ");
                 String cms = banatuta[0];
                 String version = banatuta[1];
-                Date data = rs.getDate("LastUpdate");
-                LocalDate localDate= Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
-                Eskaneoa eskaneo = new Eskaneoa(url,cms,version,localDate);
+                String data = rs.getString("LastUpdate");
+                LocalDate date = LocalDate.parse(data);
+                Eskaneoa eskaneo = new Eskaneoa(url,cms,version,date);
                 emaitza.add(eskaneo);
             }
         }catch (SQLException e){
@@ -88,14 +90,19 @@ public class CMSDBKud {
     }
     public void dataEguneratu(String pUrl, LocalDate pData){
 
-        Date date = Date.valueOf(pData);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+
+        String formattedString = pData.format(formatter);
+
+
 //        LocalDate localDate= pData.getValue();
 //
 //        String dataString=localDate.toString();
 //        Date date= Date.valueOf(dataString);
         //Date dataDate= Utils.ParseFecha(dataString);
         DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
-        String query = "UPDATE targets SET LastUpdate="+date+" WHERE target='"+pUrl+"';";
+        String query = "UPDATE targets SET LastUpdate='"+formattedString+"' WHERE target='"+pUrl+"';";
         dbkud.execSQL(query);
 
     }

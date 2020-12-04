@@ -67,7 +67,7 @@ public class DatePickerCell<S, T> extends TableCell<Eskaneoa, LocalDate> {
                 Date date = java.util.Date.from(                     // Convert from modern java.time class to troublesome old legacy class.  DO NOT DO THIS unless you must, to inter operate with old code not yet updated for java.time.
                         item                          // `LocalDate` class represents a date-only, without time-of-day and without time zone nor offset-from-UTC.
                                 .atStartOfDay(                       // Let java.time determine the first moment of the day on that date in that zone. Never assume the day starts at 00:00:00.
-                                        ZoneId.systemDefault()  // Specify time zone using proper name in `continent/region` format, never 3-4 letter pseudo-zones such as “PST”, “CST”, “IST”.
+                                        ZoneId.systemDefault()  // Specify time zone using proper name in `continent/region` format, never 3-4 letter pseudo-zones such as
                                 )                                    // Produce a `ZonedDateTime` object.
                                 .toInstant()                         // Extract an `Instant` object, a moment always in UTC.
                 );

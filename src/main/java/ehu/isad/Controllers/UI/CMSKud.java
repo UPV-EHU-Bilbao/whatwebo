@@ -132,7 +132,13 @@ public class CMSKud implements Initializable {
         cLastUpdate.setCellValueFactory(new PropertyValueFactory<>("lastUpdate"));
 
         //DATEPICKER
-
+        cLastUpdate.setCellFactory(new Callback<TableColumn<Eskaneoa, LocalDate>, TableCell<Eskaneoa, LocalDate>>() {
+            @Override
+            public TableCell<Eskaneoa, LocalDate> call(TableColumn<Eskaneoa, LocalDate> param) {
+                DatePickerCell datePick = new DatePickerCell(eskaneoak);
+                return datePick;
+            }
+        });
         //FILTROA
         SortedList<Eskaneoa> sortedData = filtroa();
 
@@ -143,14 +149,9 @@ public class CMSKud implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cLastUpdate.setCellFactory(new Callback<TableColumn<Eskaneoa, LocalDate>, TableCell<Eskaneoa, LocalDate>>() {
-            @Override
-            public TableCell<Eskaneoa, LocalDate> call(TableColumn<Eskaneoa, LocalDate> param) {
-                DatePickerCell datePick = new DatePickerCell(eskaneoak);
-                return datePick;
-            }
-        });
+
         hasieratuTaula();
+
 
 //        Callback<Eskaneoa, LocalDate> cellFactory =
 //                new Callback<Eskaneoa, LocalDate>() {
