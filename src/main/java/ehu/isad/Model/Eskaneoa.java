@@ -9,17 +9,16 @@ public class Eskaneoa {
     private String url;
     private String cms;
     private String version;
-    private DatePicker lastUpdate;
+    private LocalDate lastUpdate;
 
-    public Eskaneoa(String pUrl, String pCms, String pVersion,String pData){
+    public Eskaneoa(String pUrl, String pCms, String pVersion,LocalDate pData){
         url=pUrl;
         cms=pCms;
         version=pVersion;
-        lastUpdate= new DatePicker();
-        lastUpdate.setValue(LocalDate.parse(pData));
+        lastUpdate=pData;
     }
 
-    public void setLastUpdate(DatePicker lastUpdate) {
+    public void setLastUpdate(LocalDate lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
@@ -35,8 +34,10 @@ public class Eskaneoa {
         return version;
     }
 
-    public DatePicker getLastUpdate() {
+    public LocalDate getLastUpdate() {
         return lastUpdate;
     }
 
+    public void setLastupdated(LocalDate ld) {
+    }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="whatweb2" uuid="096e2912-4a72-4c9a-a55a-9219326babd4">
+    <data-source source="LOCAL" name="whatweb2" uuid="a64ce342-ffe9-44c0-bcc2-f5bf9ebe98f5">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>

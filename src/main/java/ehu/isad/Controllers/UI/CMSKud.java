@@ -1,11 +1,9 @@
 package ehu.isad.Controllers.UI;
 
 import ehu.isad.Controllers.DB.CMSDBKud;
+import ehu.isad.Model.DatePickerCell;
 import ehu.isad.Model.Eskaneoa;
 import ehu.isad.WhatWeb;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -13,19 +11,13 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
-import javafx.util.converter.IntegerStringConverter;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -49,7 +41,7 @@ public class CMSKud implements Initializable {
     private TableColumn<Eskaneoa, String> cVersion;
 
     @FXML
-    private TableColumn<Eskaneoa, DatePicker> cLastUpdate;
+    private TableColumn<Eskaneoa, LocalDate> cLastUpdate;
 
     @FXML
     private TextField textFilter;
@@ -107,17 +99,17 @@ public class CMSKud implements Initializable {
         return sortedData;
     }
 
-    @FXML
-    void onCommit(ActionEvent event) {
-        // Editagarria egin
-        cLastUpdate.setOnEditCommit(
-                t -> {
-                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    eskaneoa.setLastUpdate(t.getNewValue());
-                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
-                });
-
-    }
+//    @FXML
+//    void onCommit(ActionEvent event) {
+//        // Editagarria egin
+//        cLastUpdate.setOnEditCommit(
+//                t -> {
+//                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
+//                    eskaneoa.setLastUpdate(t.getNewValue());
+//                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
+//                });
+//
+//    }
 
     @FXML
     void onaAdd(ActionEvent event) {
@@ -151,15 +143,28 @@ public class CMSKud implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        cLastUpdate.setCellFactory(new Callback<TableColumn<Eskaneoa, LocalDate>, TableCell<Eskaneoa, LocalDate>>() {
+            @Override
+            public TableCell<Eskaneoa, LocalDate> call(TableColumn<Eskaneoa, LocalDate> param) {
+                DatePickerCell datePick = new DatePickerCell(eskaneoak);
+                return datePick;
+            }
+        });
         hasieratuTaula();
 
-        cLastUpdate.setOnEditCommit(
-                t -> {
-                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    eskaneoa.setLastUpdate(t.getNewValue());
-                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
-                });
+//        Callback<Eskaneoa, LocalDate> cellFactory =
+//                new Callback<Eskaneoa, LocalDate>() {
+//                    public DatePickerCell call() {
+//                        return new DatePickerCell(eskaneoak);
+//                    } };
+//
+//        cLastUpdate.setCellFactory(cellFactory);
+//        cLastUpdate.setOnEditCommit(
+//                t -> {
+//                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
+//                    eskaneoa.setLastUpdate(t.getNewValue());
+//                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
+//                });
 
 //        this.cLastUpdate.getTableView().getItems().get().getLastUpdate().setOnShowing(event -> {
 //            final TableView<T> tableView = getTableView();

@@ -1,5 +1,6 @@
 package ehu.isad.Controllers.DB;
 
+import ehu.isad.Model.DatePickerCell;
 import ehu.isad.Model.Eskaneoa;
 import ehu.isad.Utils.Utils;
 import javafx.scene.control.DatePicker;
@@ -7,7 +8,9 @@ import javafx.scene.control.DatePicker;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -71,8 +74,9 @@ public class CMSDBKud {
                 String[] banatuta = cmsVersion.split(" ");
                 String cms = banatuta[0];
                 String version = banatuta[1];
-                String data = rs.getDate("LastUpdate").toString();
-                Eskaneoa eskaneo = new Eskaneoa(url,cms,version,data);
+                Date data = rs.getDate("LastUpdate");
+                LocalDate localDate= Instant.ofEpochMilli(data.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+                Eskaneoa eskaneo = new Eskaneoa(url,cms,version,localDate);
                 emaitza.add(eskaneo);
             }
         }catch (SQLException e){
@@ -82,11 +86,13 @@ public class CMSDBKud {
 
         return emaitza;
     }
-    public void dataEguneratu(String pUrl, DatePicker pData){
+    public void dataEguneratu(String pUrl, LocalDate pData){
 
-        LocalDate localDate= pData.getValue();
-        String dataString=localDate.toString();
-        Date date= Date.valueOf(dataString);
+        Date date = Date.valueOf(pData);
+//        LocalDate localDate= pData.getValue();
+//
+//        String dataString=localDate.toString();
+//        Date date= Date.valueOf(dataString);
         //Date dataDate= Utils.ParseFecha(dataString);
         DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
         String query = "UPDATE targets SET LastUpdate="+date+" WHERE target='"+pUrl+"';";
