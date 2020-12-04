@@ -48,15 +48,20 @@ public class WhatWebKud {
     private AnchorPane cmspane;
 
     @FXML
-    private CMSKud cmsController ;
+    private StackPane stackPane;
 
-    @FXML
-    private ServerKud serverController ;
 
-    @FXML
-    private WebKud webController ;
 
     private WhatWeb main;
+
+    public void webAurrera(){
+
+            lblMotak.setText("target, agrssion, http, auth, proxy, plugins, output, logging, performance");
+            lblCMS.setText("WhatWeb");
+            lblCMS.setBackground(new Background(new BackgroundFill(Color.rgb(200,0,217), CornerRadii.EMPTY, Insets.EMPTY)));
+            pnBack.setBackground(new Background(new BackgroundFill(Color.rgb(200,0,217), CornerRadii.EMPTY, Insets.EMPTY)));
+            webpane.toFront();
+        }
 
     @FXML
     void handleClicks(ActionEvent event) {
@@ -76,7 +81,7 @@ public class WhatWebKud {
             pnBack.setBackground(new Background(new BackgroundFill(Color.rgb(204,0,150), CornerRadii.EMPTY, Insets.EMPTY)));
             serverpane.toFront();
         }
-        else if(event.getSource()== btnWhatWeb){
+        else if(event.getSource()== btnWhatWeb ){
             lblMotak.setText("target, agrssion, http, auth, proxy, plugins, output, logging, performance");
             lblCMS.setText("WhatWeb");
             lblCMS.setBackground(new Background(new BackgroundFill(Color.rgb(200,0,217), CornerRadii.EMPTY, Insets.EMPTY)));

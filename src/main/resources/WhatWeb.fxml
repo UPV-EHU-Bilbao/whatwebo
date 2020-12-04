@@ -73,7 +73,7 @@
         </Label>
     </Pane>
       <FontAwesomeIconView fx:id="btnClose" glyphName="CLOSE" layoutX="782.0" layoutY="18.0" onMouseClicked="#onClick" />
-      <StackPane layoutX="196.0" layoutY="154.0" prefHeight="287.0" prefWidth="530.0">
+      <StackPane fx:id="stackPane" layoutX="196.0" layoutY="154.0" prefHeight="287.0" prefWidth="530.0">
 
               <AnchorPane fx:id="serverpane">
                   <fx:include fx:id="server" source="./Server.fxml" />

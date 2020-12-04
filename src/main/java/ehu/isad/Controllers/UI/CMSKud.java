@@ -2,6 +2,7 @@ package ehu.isad.Controllers.UI;
 
 import ehu.isad.Controllers.DB.CMSDBKud;
 import ehu.isad.Model.Eskaneoa;
+import ehu.isad.WhatWeb;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -59,8 +60,20 @@ public class CMSKud implements Initializable {
     @FXML
     private Button btnUrl;
 
+    private WhatWeb main;
+
+    public Button getBtnUrl(){
+        return btnUrl;
+    }
+
+
     public CMSKud() {
         System.out.println("cms inst");
+    }
+
+    public void setMain(WhatWeb pMain){
+        this.main=pMain;
+
     }
 
     private SortedList<Eskaneoa> filtroa(){
@@ -106,6 +119,11 @@ public class CMSKud implements Initializable {
 
     }
 
+    @FXML
+    void onaAdd(ActionEvent event) {
+        main.getWhatWebKud().webAurrera();
+    }
+
 
     public void hasieratuTaula() {
 //        Eskaneoa esk=new Eskaneoa("uwu.com","owo","4.4");//proba
@@ -135,6 +153,7 @@ public class CMSKud implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         hasieratuTaula();
+
         cLastUpdate.setOnEditCommit(
                 t -> {
                     Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
@@ -142,17 +161,17 @@ public class CMSKud implements Initializable {
                     CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
                 });
 
-        this.cLastUpdate.getTableView().getItems().get().getLastUpdate().setOnShowing(event -> {
-            final TableView<T> tableView = getTableView();
-            tableView.getSelectionModel().select(getTableRow().getIndex());
-            tableView.edit(tableView.getSelectionModel().getSelectedIndex(), column);
-        });
-
-        this.colorPicker.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if(isEditing()) {
-                commitEdit(newValue);
-            }
-        });
+//        this.cLastUpdate.getTableView().getItems().get().getLastUpdate().setOnShowing(event -> {
+//            final TableView<T> tableView = getTableView();
+//            tableView.getSelectionModel().select(getTableRow().getIndex());
+//            tableView.edit(tableView.getSelectionModel().getSelectedIndex(), column);
+//        });
+//
+//        this.colorPicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+//            if(isEditing()) {
+//                commitEdit(newValue);
+//            }
+//        });
 
 
 

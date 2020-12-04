@@ -37,6 +37,10 @@ public class WhatWeb extends Application {
         return serverKud;
     }
 
+    public WhatWebKud getWhatWebKud() {
+        return whatWebKud;
+    }
+
     public void start(Stage primaryStage) throws Exception {
 
         stage = primaryStage;
@@ -52,6 +56,7 @@ public class WhatWeb extends Application {
         serverKud = new ServerKud();
         webKud = new WebKud();
         cmsKud = new CMSKud();
+
 
         Callback<Class<?>, Object> controllerFactory = type -> {
             if (type == WhatWebKud.class) {
@@ -78,6 +83,8 @@ public class WhatWeb extends Application {
         nagusiaUI = (Parent) loaderNagusia.load();
         whatWebKud = loaderNagusia.getController();
         whatWebKud.setMainApp(this);
+        cmsKud.setMain(this);
+
     }
 
     public static void main(String[] args) {
