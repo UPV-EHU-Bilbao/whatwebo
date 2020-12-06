@@ -47,7 +47,7 @@ public class CMSKud implements Initializable {
     private TextField textFilter;
 
     @FXML
-    private ComboBox<?> comboZerbitzua;
+    private ComboBox<String> comboZerbitzua;
 
     @FXML
     private Button btnUrl;
@@ -73,6 +73,7 @@ public class CMSKud implements Initializable {
         FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
 
         // 2. Set the filter Predicate whenever the filter changes.
+        //testua
         textFilter.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(eskan -> {
                 // Hutsik badago, denak erakutsi
@@ -87,6 +88,25 @@ public class CMSKud implements Initializable {
                     return true; // Filtroa bat egin url-arekin
                 }
                 return false; // Ez du bat egiten
+            });
+        });
+        //combo
+        comboZerbitzua.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            filteredData.setPredicate(eskaneo -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
             });
         });
 
@@ -140,34 +160,35 @@ public class CMSKud implements Initializable {
             }
         });
         //FILTROA
-        // 1. Wrap the ObservableList in a FilteredList (initially display all data).
-        FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
-
-        // 2. Set the filter Predicate whenever the filter changes.
-        comboZerbitzua.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-            filteredData.setPredicate(eskaneo -> {
-                // If filter text is empty, display all persons.
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare first name and last name of every person with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
-                } else if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches last name.
-                }
-                return false; // Does not match.
-            });
-        });
-
-        // 3. Wrap the FilteredList in a SortedList.
-        SortedList<Eskaneoa> sortedData = new SortedList<>(filteredData);
-
-        // 4. Bind the SortedList comparator to the TableView comparator.
-        sortedData.comparatorProperty().bind(tCMS.comparatorProperty());
+        SortedList<Eskaneoa> sortedData = filtroa();
+//        // 1. Wrap the ObservableList in a FilteredList (initially display all data).
+//        FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
+//
+//        // 2. Set the filter Predicate whenever the filter changes.
+//        comboZerbitzua.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+//            filteredData.setPredicate(eskaneo -> {
+//                // If filter text is empty, display all persons.
+//                if (newValue == null || newValue.isEmpty()) {
+//                    return true;
+//                }
+//
+//                // Compare first name and last name of every person with filter text.
+//                String lowerCaseFilter = newValue.toLowerCase();
+//
+//                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+//                    return true; // Filter matches first name.
+//                } else if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+//                    return true; // Filter matches last name.
+//                }
+//                return false; // Does not match.
+//            });
+//        });
+//
+//        // 3. Wrap the FilteredList in a SortedList.
+//        SortedList<Eskaneoa> sortedData = new SortedList<>(filteredData);
+//
+//        // 4. Bind the SortedList comparator to the TableView comparator.
+//        sortedData.comparatorProperty().bind(tCMS.comparatorProperty());
 
         // 5. Add sorted (and filtered) data to the table.
         tCMS.setItems(sortedData);
