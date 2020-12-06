@@ -140,7 +140,34 @@ public class CMSKud implements Initializable {
             }
         });
         //FILTROA
-        SortedList<Eskaneoa> sortedData = filtroa();
+        // 1. Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
+
+        // 2. Set the filter Predicate whenever the filter changes.
+        comboZerbitzua.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+            filteredData.setPredicate(eskaneo -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches last name.
+                }
+                return false; // Does not match.
+            });
+        });
+
+        // 3. Wrap the FilteredList in a SortedList.
+        SortedList<Eskaneoa> sortedData = new SortedList<>(filteredData);
+
+        // 4. Bind the SortedList comparator to the TableView comparator.
+        sortedData.comparatorProperty().bind(tCMS.comparatorProperty());
 
         // 5. Add sorted (and filtered) data to the table.
         tCMS.setItems(sortedData);
@@ -150,6 +177,13 @@ public class CMSKud implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        comboZerbitzua.getItems().add("WordPress");
+        comboZerbitzua.getItems().add("Joomla");
+        comboZerbitzua.getItems().add("phpMyAdmin");
+        comboZerbitzua.getItems().add("Drupal");
+        comboZerbitzua.getItems().add("");
+
+        comboZerbitzua.setEditable(true);
         hasieratuTaula();
 
 
