@@ -43,9 +43,23 @@ public class ServerKud {
 
         String newLine = System.getProperty("line.separator");
         final StringBuilder emaitza = new StringBuilder();
-        targets.forEach(line -> {
-            emaitza.append(line.getTarget() + newLine);
-        });
+        String eskaera = "???: Ezezaguna";
+        int status;
+        for (Target line : targets) {
+            status=line.getStatus();
+            if (status == 200) {
+                eskaera = 200 + ": SUCCESSFUL REQUEST";
+            }else if (status == 301){
+                eskaera = 301 + ": MOVED PERMANENTLY";
+            }else if (status == 400){
+                eskaera= 400 + ": BAD REQUEST";
+            }else if (status == 403){
+                eskaera = 403 + ": FORBIDDEN";
+            }else if (status == 404) {
+                eskaera = 404 + ": NOT FOUND";
+            }
+            emaitza.append(line.getTarget() + "  -  " + eskaera + newLine);
+        }
 
         txtArea.setText(emaitza.toString());
 

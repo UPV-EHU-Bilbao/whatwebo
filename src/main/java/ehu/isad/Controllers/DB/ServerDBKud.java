@@ -23,7 +23,7 @@ public class ServerDBKud {
         List<Target> emaitza = new ArrayList<>();
         DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
 
-        String query = "select * from targets";
+        String query = "select target_id,target,status from targets";
         ResultSet rs = dbkud.execSQL(query);
 
         try {
