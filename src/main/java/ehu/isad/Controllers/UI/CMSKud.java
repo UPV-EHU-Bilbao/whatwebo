@@ -71,20 +71,21 @@ public class CMSKud implements Initializable {
     private SortedList<Eskaneoa> filtroa(){
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
-
         // 2. Set the filter Predicate whenever the filter changes.
         //testua
         textFilter.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(eskan -> {
+                String comboValue = comboZerbitzua.getValue().toLowerCase();
                 // Hutsik badago, denak erakutsi
-                if (newValue == null || newValue.isEmpty()) {
+                if ((newValue == null || newValue.isEmpty()) && comboValue=="") {
                     return true;
                 }
 
                 // Konparatu url bakoitza textFilter-ekin
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (eskan.getUrl().toLowerCase().contains(lowerCaseFilter)) {
+                if (eskan.getUrl().toLowerCase().contains(lowerCaseFilter) &&
+                eskan.getCms().toLowerCase().contains(comboValue)) {
                     return true; // Filtroa bat egin url-arekin
                 }
                 return false; // Ez du bat egiten
@@ -93,18 +94,18 @@ public class CMSKud implements Initializable {
         //combo
         comboZerbitzua.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
             filteredData.setPredicate(eskaneo -> {
+                String textValue = textFilter.getText().toLowerCase();
                 // If filter text is empty, display all persons.
-                if (newValue == null || newValue.isEmpty()) {
+                if ((newValue == null || newValue.isEmpty()) && textValue=="") {
                     return true;
                 }
 
                 // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
+                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)&&
+                eskaneo.getUrl().toLowerCase().contains(textValue)) {
                     return true; // Filter matches first name.
-                } else if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches last name.
                 }
                 return false; // Does not match.
             });
@@ -198,13 +199,14 @@ public class CMSKud implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        comboZerbitzua.getItems().add("");
         comboZerbitzua.getItems().add("WordPress");
         comboZerbitzua.getItems().add("Joomla");
         comboZerbitzua.getItems().add("phpMyAdmin");
         comboZerbitzua.getItems().add("Drupal");
-        comboZerbitzua.getItems().add("");
-
+        comboZerbitzua.getSelectionModel().selectFirst();
         comboZerbitzua.setEditable(true);
+
         hasieratuTaula();
 
 
