@@ -3,12 +3,6 @@
  */
 package ehu.isad;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
 public class WhatWebTest {
-    @Test public void testAppHasAGreeting() {
-        WhatWeb classUnderTest = new WhatWeb();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
-    }
+
 }
