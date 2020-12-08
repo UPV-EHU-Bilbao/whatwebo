@@ -91,12 +91,16 @@ jlink {
     }
 
     jpackage {
-           // installerType = "exe"
-         //   if(javafx.getPlatform().name()=="OSX"){
-                installerType = "deb"
-                jpackageHome = "/usr/lib/jvm/jdk-14.0.2"
-        //    }else if(javafx.getPlatform().name()=="WINDOWS") {
-          //      jpackageHome = "C:\\Program Files\\Java\\jdk-14.0.2"
-            //}
+        if(org.gradle.internal.os.OperatingSystem.current().linux){
+            installerType = "deb"
+            jpackageHome = "/usr/lib/jvm/jdk-14.0.2"
+        }else if(javafx.getPlatform().name()=="WINDOWS") {
+            installerType = "exe"
+            jpackageHome = "C:\\Program Files\\Java\\jdk-14.0.2"
+        }
+        else if(javafx.getPlatform().name()=="OSX"){
+            installerType = "dmg"
+            jpackageHome = "/usr/lib/jvm/jdk-14.0.2"
+        }
     }
 }
