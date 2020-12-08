@@ -201,7 +201,7 @@ public class CMSKud implements Initializable {
 
         comboZerbitzua.getItems().add("");
         comboZerbitzua.getItems().add("WordPress");
-        comboZerbitzua.getItems().add("Joomla");
+        comboZerbitzua.getItems().add("Joomla!");
         comboZerbitzua.getItems().add("phpMyAdmin");
         comboZerbitzua.getItems().add("Drupal");
         comboZerbitzua.getSelectionModel().selectFirst();
