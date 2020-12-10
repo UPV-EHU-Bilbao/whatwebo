@@ -1,8 +1,11 @@
 package ehu.isad.Controllers.DB;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.*;
 import java.util.Properties;
 
@@ -22,6 +25,21 @@ public class DBKudeatzaile {
         } catch (Exception e) {
             System.err.println("Cannot connect to database server " + e);
         }
+    }
+
+    private String mugituDBLortu(String dbpath) throws IOException {
+        String path=System.getProperty("user.home") +
+                System.getProperty("file.separator") + ".whatwebfx" + System.getProperty("file.separator");
+        File f=new File(path);
+        File dbFile=new File(dbpath);
+        if(!f.exists()){
+            f.mkdir();
+        }
+        f=new File(path+System.getProperty("file.separator")+dbpath);
+        f.delete();
+        f.mkdir();
+        Files.copy(dbFile.toPath(),f.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        return dbpath;
     }
 
     private ResultSet query(Statement s, String query) {
@@ -57,8 +75,13 @@ public class DBKudeatzaile {
                 e.printStackTrace();
             }
         }
-
-        this.conOpen(properties.getProperty("dbpath"));
+        String dbpath=properties.getProperty("dbpath");
+        try {
+            dbpath=this.mugituDBLortu(dbpath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.conOpen(dbpath);
 
     }
 
