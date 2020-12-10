@@ -13,9 +13,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-import java.util.List;
 
-public class WhatWebKud {
+
+public class WhatWebKud{
+
+    @FXML
+    private Pane mainPane;
 
     @FXML
     private Button btnCMS;
@@ -50,6 +53,10 @@ public class WhatWebKud {
     @FXML
     private StackPane stackPane;
 
+    private double xx;
+
+    private double xy;
+
 
 
     private WhatWeb main;
@@ -62,6 +69,28 @@ public class WhatWebKud {
             pnBack.setBackground(new Background(new BackgroundFill(Color.rgb(200,0,217), CornerRadii.EMPTY, Insets.EMPTY)));
             webpane.toFront();
         }
+
+
+    @FXML
+    void mousePressed(MouseEvent event) {
+        xx=event.getX();
+        xy=event.getY();
+
+        }
+
+
+    @FXML
+    void mouseDragged(MouseEvent event) {
+        double x =event.getScreenX();
+        double y =event.getScreenY();
+
+
+        main.getStage().setX(x-xx);
+        main.getStage().setY(y-xy);
+
+    }
+
+
 
     @FXML
     void handleClicks(ActionEvent event) {

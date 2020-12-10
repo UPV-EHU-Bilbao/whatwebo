@@ -5,11 +5,10 @@ open module whatwebo {
 
     requires de.jensd.fx.fontawesomefx.commons;
     requires de.jensd.fx.fontawesomefx.fontawesome;
-    requires javafx.base;
-    requires javafx.fxml;
-    requires javafx.graphics;
-    requires javafx.controls;
     requires sqlite.jdbc;
+    requires java.desktop;
+    requires javafx.controls;
+    requires javafx.fxml;
 
 
     exports ehu.isad;

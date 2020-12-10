@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="358.0" prefWidth="604.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.ServerKud">
    <children>
       <Button fx:id="btnEguneratu" layoutX="270.0" layoutY="292.0" mnemonicParsing="false" onAction="#onClick" text="SHOW" textFill="WHITE" />
-      <TabPane fx:id="serverTP" layoutX="17.0" layoutY="14.0" prefHeight="245.0" prefWidth="565.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="serverTP" layoutX="17.0" layoutY="14.0" prefHeight="245.0" prefWidth="565.0" stylesheets="@css/fullpackstyling.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab fx:id="t200" text="200-OK">
               <content>
@@ -28,7 +28,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea fx:id="txt301" editable="false" prefHeight="192.0" prefWidth="565.0">
+                        <TextArea fx:id="txt301" editable="false" prefHeight="218.0" prefWidth="565.0">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -40,7 +40,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea fx:id="txt403" editable="false" prefHeight="192.0" prefWidth="565.0">
+                        <TextArea fx:id="txt403" editable="false" prefHeight="207.0" prefWidth="565.0">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -52,7 +52,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="550.0">
                      <children>
-                        <TextArea fx:id="txt404" editable="false" prefHeight="192.0" prefWidth="565.0">
+                        <TextArea fx:id="txt404" editable="false" prefHeight="206.0" prefWidth="565.0">
                            <font>
                               <Font size="17.0" />
                            </font>

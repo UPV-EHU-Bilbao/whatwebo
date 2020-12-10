@@ -112,3 +112,24 @@
     -fx-border-color: derive(-fx-pie-color, 1%);
     -fx-border-width: 0px;
 }
+.tab-pane *.tab-header-area *.tab-header-background {
+    -fx-background-color:purple;
+}
+
+/*.tab-pane {*/
+/*    -fx-tab-min-width:120px;*/
+/*    -fx-tab-max-width:120px;*/
+/*    -fx-tab-min-height:50px;*/
+/*    -fx-tab-max-height:50px;*/
+/*}*/
+
+.tab {
+    -fx-font-family: Arial;
+    -fx-font-size: 14;
+    -fx-text-fill: white;
+    -fx-background-color:pink ;
+}
+
+.tab:selected {
+    -fx-background-color:#CC0096 ;
+}

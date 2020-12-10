@@ -23,7 +23,7 @@ import static javafx.application.Application.launch;
 public class WhatWeb extends Application {
 
     private Stage stage;
-    private Parent nagusiaUI;
+    private Parent nagusiaUI ;
     private WhatWebKud whatWebKud;
     private CMSKud cmsKud;
     private ServerKud serverKud;
@@ -48,6 +48,10 @@ public class WhatWeb extends Application {
         pantailakKargatu();
         stage.setScene(new Scene(nagusiaUI));
         stage.show();
+    }
+
+    public Stage getStage(){
+        return stage;
     }
 
     private void pantailakKargatu() throws IOException {
@@ -86,6 +90,7 @@ public class WhatWeb extends Application {
         cmsKud.setMain(this);
 
     }
+
 
     public static void main(String[] args) {
         launch(args);
