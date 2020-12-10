@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="358.0" prefWidth="604.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.ServerKud">
    <children>
-      <Button fx:id="btnEguneratu" layoutX="259.0" layoutY="292.0" mnemonicParsing="false" onAction="#onClick" text="Eguneratu" textFill="WHITE" />
+      <Button fx:id="btnEguneratu" layoutX="270.0" layoutY="292.0" mnemonicParsing="false" onAction="#onClick" text="SHOW" textFill="WHITE" />
       <TabPane fx:id="serverTP" layoutX="17.0" layoutY="14.0" prefHeight="245.0" prefWidth="565.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab fx:id="t200" text="200-OK">
