@@ -8,9 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.StringConverter;
 
@@ -22,47 +20,68 @@ import java.util.ResourceBundle;
 public class ServerKud {
 
     @FXML
-    private GridPane pnServer;
-
-    @FXML
-    private TextArea txtArea;
-
-    @FXML
     private Button btnEguneratu;
 
     @FXML
+    private TabPane serverTP;
+
+    @FXML
+    private Tab t200;
+
+    @FXML
+    private TextArea txt200;
+
+    @FXML
+    private Tab t301;
+
+    @FXML
+    private TextArea txt301;
+
+    @FXML
+    private Tab t403;
+
+    @FXML
+    private TextArea txt403;
+
+    @FXML
+    private Tab t404;
+
+    @FXML
+    private TextArea txt404;
+    @FXML
     void onClick(ActionEvent event) {
 
-        this.txtAreaAktualizatu();
+        this.tabEguneratu();
 
     }
 
-    private void txtAreaAktualizatu(){
+    private void tabEguneratu(){
 
         List<Target> targets = ServerDBKud.getInstance().targetLortu();
 
         String newLine = System.getProperty("line.separator");
-        final StringBuilder emaitza = new StringBuilder();
-        String eskaera = "???: Ezezaguna";
+        final StringBuilder emaitza200 = new StringBuilder();
+        final StringBuilder emaitza301 = new StringBuilder();
+        final StringBuilder emaitza403 = new StringBuilder();
+        final StringBuilder emaitza404 = new StringBuilder();
+        //Lehenengo bertsio honetan 4 hauek soilik filtratuko dira
         int status;
         for (Target line : targets) {
             status=line.getStatus();
             if (status == 200) {
-                eskaera = 200 + ": SUCCESSFUL REQUEST";
+                emaitza200.append(line.getTarget()+newLine);
             }else if (status == 301){
-                eskaera = 301 + ": MOVED PERMANENTLY";
-            }else if (status == 400){
-                eskaera= 400 + ": BAD REQUEST";
+                emaitza301.append(line.getTarget()+newLine);
             }else if (status == 403){
-                eskaera = 403 + ": FORBIDDEN";
+                emaitza403.append(line.getTarget()+newLine);
             }else if (status == 404) {
-                eskaera = 404 + ": NOT FOUND";
+                emaitza404.append(line.getTarget()+newLine);
             }
-            emaitza.append(line.getTarget() + "  -  " + eskaera + newLine);
         }
-
-        txtArea.setText(emaitza.toString());
-
+        txt200.setText(emaitza200.toString());
+        txt301.setText(emaitza301.toString());
+        txt403.setText(emaitza403.toString());
+        txt404.setText(emaitza404.toString());
     }
 
     public ServerKud() {
