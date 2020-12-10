@@ -58,6 +58,7 @@ public class WebKud implements Initializable {
 
                 try {
                     txertatu();
+                    ezabatuFitx();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -99,7 +100,7 @@ public class WebKud implements Initializable {
         return processes;
     }
 
-    private void txertatu() throws IOException {
+    void txertatu() throws IOException {
 
         Properties prp= Utils.lortuEzarpenak();
         String dbmysqlpath=prp.getProperty("dbmysqlpath");
@@ -107,11 +108,10 @@ public class WebKud implements Initializable {
         BufferedReader bf = new BufferedReader(new FileReader(f));
         WebDBKud.getInstance().sartuSQLite(bf);
         bf.close();
-        ezabatuFitx();
 
     }
 
-    private void ezabatuFitx() throws IOException {
+    void ezabatuFitx() throws IOException {
         Properties prp= Utils.lortuEzarpenak();
         String dbpath=prp.getProperty("dbmysqlpath");
         File f=new File(dbpath);
