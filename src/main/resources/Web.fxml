@@ -8,10 +8,10 @@
 
 <AnchorPane prefHeight="354.0" prefWidth="604.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.Controllers.UI.WebKud">
     <children>
-          <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="11.0" layoutY="101.0" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="26.0" text="LOG:" />
-          <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="12.0" layoutY="66.0" lineSpacing="10.0" prefHeight="17.0" prefWidth="24.0" text="URL:" />
-          <TextField fx:id="textURL" layoutX="36.0" layoutY="62.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="524.0" />
-          <TextArea fx:id="textAreaLog" layoutX="36.0" layoutY="101.0" maxWidth="-Infinity" prefHeight="167.0" prefWidth="524.0" />
+          <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="12.0" layoutY="101.0" maxHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="42.0" text="LOG:" />
+          <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="12.0" layoutY="66.0" lineSpacing="10.0" prefHeight="17.0" prefWidth="42.0" text="URL:" />
+          <TextField fx:id="textURL" layoutX="56.0" layoutY="62.0" maxWidth="-Infinity" prefHeight="26.0" prefWidth="504.0" />
+          <TextArea fx:id="textAreaLog" layoutX="56.0" layoutY="101.0" maxWidth="-Infinity" prefHeight="167.0" prefWidth="504.0" />
           <Button fx:id="btnScan" layoutX="275.0" layoutY="294.0" mnemonicParsing="false" onAction="#onClickScan" stylesheets="@css/fullpackstyling.css" text="SCAN" textFill="WHITE" />
     </children>
 </AnchorPane>

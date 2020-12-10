@@ -12,6 +12,9 @@ public class DBKudeatzaile {
 
     private void conOpen(String dbpath) {
         try {
+            dbpath = System.getProperty("user.home") +
+                    System.getProperty("file.separator") + ".whatwebfx" +
+                    System.getProperty("file.separator") + dbpath;
             String url = "jdbc:sqlite:"+ dbpath;
             conn = DriverManager.getConnection(url);
 

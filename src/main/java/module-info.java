@@ -1,5 +1,5 @@
 
-open module scenebuilder {
+open module whatwebo {
 
     requires java.sql;
 
@@ -9,6 +9,7 @@ open module scenebuilder {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.controls;
+    requires sqlite.jdbc;
 
 
     exports ehu.isad;
