@@ -77,9 +77,12 @@ public class WebKud implements Initializable {
             String line;
             Process p = null;
             Properties prp= Utils.lortuEzarpenak();
-            String dbmysqlpath=prp.getProperty("dbmysqlpath");
+            String dbmysqlpath=System.getProperty("user.home") +
+                    System.getProperty("file.separator") + ".whatwebfx" +
+                    System.getProperty("file.separator")+prp.getProperty("dbmysqlpath");
 
             if(System.getProperty("os.name").toLowerCase().contains("win")) {
+                dbmysqlpath=dbmysqlpath.replace("\\","/");
                 dbmysqlpath=dbmysqlpath.replace("C:/","/mnt/c/");
                 p = Runtime.getRuntime().exec
                         (System.getenv("windir") +"\\system32\\"+"" +
@@ -103,7 +106,9 @@ public class WebKud implements Initializable {
     void txertatu() throws IOException {
 
         Properties prp= Utils.lortuEzarpenak();
-        String dbmysqlpath=prp.getProperty("dbmysqlpath");
+        String dbmysqlpath=System.getProperty("user.home") +
+                System.getProperty("file.separator") + ".whatwebfx" +
+                System.getProperty("file.separator")+prp.getProperty("dbmysqlpath");
         File f=new File(dbmysqlpath);
         BufferedReader bf = new BufferedReader(new FileReader(f));
         WebDBKud.getInstance().sartuSQLite(bf);
@@ -113,7 +118,9 @@ public class WebKud implements Initializable {
 
     void ezabatuFitx() throws IOException {
         Properties prp= Utils.lortuEzarpenak();
-        String dbpath=prp.getProperty("dbmysqlpath");
+        String dbpath=System.getProperty("user.home") +
+                System.getProperty("file.separator") + ".whatwebfx" +
+                System.getProperty("file.separator")+prp.getProperty("dbmysqlpath");
         File f=new File(dbpath);
         f.delete();
     }

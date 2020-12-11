@@ -21,7 +21,9 @@ class WebKudTest {
     void setUp() {
         web=new WebKud();
         prp= Utils.lortuEzarpenak();
-        dbmysqlpath=prp.getProperty("dbmysqlpath");
+        dbmysqlpath=System.getProperty("user.home") +
+                System.getProperty("file.separator") + ".whatwebfx" +
+                System.getProperty("file.separator")+prp.getProperty("dbmysqlpath");
         f=new File(dbmysqlpath);
     }
 
