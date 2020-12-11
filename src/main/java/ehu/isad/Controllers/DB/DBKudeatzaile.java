@@ -1,9 +1,6 @@
 package ehu.isad.Controllers.DB;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.sql.*;
@@ -27,20 +24,42 @@ public class DBKudeatzaile {
         }
     }
 
-//    private String mugituDBLortu(String dbpath) throws IOException {
-//        String path=System.getProperty("user.home") +
-//                System.getProperty("file.separator") + ".whatwebfx" + System.getProperty("file.separator");
-//        File f=new File(path);
-//        File dbFile=new File(dbpath);
-//        if(!f.exists()){
-//            f.mkdir();
-//        }
-//        f=new File(path+System.getProperty("file.separator")+dbpath);
-//        f.delete();
-//        f.mkdir();
-//        Files.copy(dbFile.toPath(),f.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        return dbpath;
-//    }
+    private void mugituDBLortu(String dbpath) throws IOException {
+        String path=System.getProperty("user.home") +
+                System.getProperty("file.separator") + ".whatwebfx" + System.getProperty("file.separator");
+        File f=new File(path);
+        InputStream isdb=getClass().getResourceAsStream("/whatweb2.sqlite.sql");
+        if(!f.exists()){
+            f.mkdir();
+        }
+        String dbpathOsoa=path+dbpath;
+        f=new File(dbpathOsoa);
+        if(!f.exists()){
+            this.conOpen(dbpath);
+            f=new File(path+System.getProperty("file.separator")+"whatweb2.sqlite.sql");
+            f.mkdir();
+            Files.copy(isdb,f.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            sortuDB(f,dbpathOsoa);
+        }
+        else{
+            this.conOpen(dbpath);
+        }
+    }
+
+    private void sortuDB(File f,String dbpath) throws IOException {
+
+        BufferedReader bf = new BufferedReader(new FileReader(f));
+        String query;
+        String line;
+
+//            query="CREATE DATABASE whatweb2.sqlite";
+//            this.execSQL(query);
+
+        while((line=bf.readLine())!=null){
+            query= line;
+            this.execSQL(query);
+        }
+    }
 
     private ResultSet query(Statement s, String query) {
 
@@ -76,12 +95,13 @@ public class DBKudeatzaile {
             }
         }
         String dbpath=properties.getProperty("dbpath");
-//        try {
-//            dbpath=this.mugituDBLortu(dbpath);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        this.conOpen(dbpath);
+        String dbinstalatzaile=properties.getProperty("dbinstalatzaile");
+        try {
+            this.mugituDBLortu(dbpath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //this.conOpen(dbpath);
 
     }
 
