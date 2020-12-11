@@ -1,21 +1,14 @@
 package ehu.isad.Controllers.DB;
 
-import ehu.isad.Model.DatePickerCell;
 import ehu.isad.Model.Eskaneoa;
-import ehu.isad.Utils.Utils;
-import javafx.scene.control.DatePicker;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+
 
 public class CMSDBKud {
 
@@ -69,9 +62,7 @@ public class CMSDBKud {
                     }
                     auk++;
                 }
-//                 for auk
-//                    if cmsversion.contains(aukera)
-//                           cmsversion=aukera
+
                 String url = rs.getString("target");
                 String[] banatuta = cmsVersion.split(" ");
                 String cms = banatuta[0];
@@ -92,17 +83,10 @@ public class CMSDBKud {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-
         String formattedString = pData.format(formatter);
 
-
-//        LocalDate localDate= pData.getValue();
-//
-//        String dataString=localDate.toString();
-//        Date date= Date.valueOf(dataString);
-        //Date dataDate= Utils.ParseFecha(dataString);
         DBKudeatzaile dbkud = DBKudeatzaile.getInstantzia();
-        String query = "UPDATE targets SET LastUpdate='"+formattedString+"' WHERE target='"+pUrl+"';";
+        String query = "UPDATE targets SET LastUpdate='"+formattedString+"' WHERE target LIKE'%"+pUrl+"%';";
         dbkud.execSQL(query);
 
     }

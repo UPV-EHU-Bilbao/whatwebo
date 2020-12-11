@@ -1,8 +1,6 @@
 package ehu.isad.Controllers.UI;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import ehu.isad.Controllers.DB.CMSDBKud;
-import ehu.isad.Model.Eskaneoa;
 import ehu.isad.WhatWeb;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

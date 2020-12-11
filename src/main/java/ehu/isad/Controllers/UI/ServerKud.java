@@ -1,20 +1,12 @@
 package ehu.isad.Controllers.UI;
 
 import ehu.isad.Controllers.DB.ServerDBKud;
-import ehu.isad.Controllers.DB.WebDBKud;
 import ehu.isad.Model.Target;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.util.StringConverter;
 
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
 
 public class ServerKud {
@@ -85,7 +77,7 @@ public class ServerKud {
     }
 
     public ServerKud() {
-        System.out.println("server inst");
+
     }
 
 }

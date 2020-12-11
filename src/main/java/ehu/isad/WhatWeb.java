@@ -3,7 +3,6 @@
  */
 package ehu.isad;
 
-import ehu.isad.Controllers.DB.CMSDBKud;
 import ehu.isad.Controllers.UI.CMSKud;
 import ehu.isad.Controllers.UI.ServerKud;
 import ehu.isad.Controllers.UI.WebKud;
@@ -18,7 +17,6 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 
-import static javafx.application.Application.launch;
 
 public class WhatWeb extends Application {
 
@@ -31,10 +29,6 @@ public class WhatWeb extends Application {
 
     public CMSKud getCmsKud() {
         return cmsKud;
-    }
-
-    public ServerKud getServerKud() {
-        return serverKud;
     }
 
     public WhatWebKud getWhatWebKud() {

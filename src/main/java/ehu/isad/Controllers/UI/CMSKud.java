@@ -54,13 +54,9 @@ public class CMSKud implements Initializable {
 
     private WhatWeb main;
 
-    public Button getBtnUrl(){
-        return btnUrl;
-    }
-
 
     public CMSKud() {
-        System.out.println("cms inst");
+
     }
 
     public void setMain(WhatWeb pMain){
@@ -120,17 +116,6 @@ public class CMSKud implements Initializable {
         return sortedData;
     }
 
-//    @FXML
-//    void onCommit(ActionEvent event) {
-//        // Editagarria egin
-//        cLastUpdate.setOnEditCommit(
-//                t -> {
-//                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
-//                    eskaneoa.setLastUpdate(t.getNewValue());
-//                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
-//                });
-//
-//    }
 
     @FXML
     void onaAdd(ActionEvent event) {
@@ -162,38 +147,7 @@ public class CMSKud implements Initializable {
         });
         //FILTROA
         SortedList<Eskaneoa> sortedData = filtroa();
-//        // 1. Wrap the ObservableList in a FilteredList (initially display all data).
-//        FilteredList<Eskaneoa> filteredData = new FilteredList<>(eskaneoak, p -> true);
-//
-//        // 2. Set the filter Predicate whenever the filter changes.
-//        comboZerbitzua.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
-//            filteredData.setPredicate(eskaneo -> {
-//                // If filter text is empty, display all persons.
-//                if (newValue == null || newValue.isEmpty()) {
-//                    return true;
-//                }
-//
-//                // Compare first name and last name of every person with filter text.
-//                String lowerCaseFilter = newValue.toLowerCase();
-//
-//                if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
-//                    return true; // Filter matches first name.
-//                } else if (eskaneo.getCms().toLowerCase().contains(lowerCaseFilter)) {
-//                    return true; // Filter matches last name.
-//                }
-//                return false; // Does not match.
-//            });
-//        });
-//
-//        // 3. Wrap the FilteredList in a SortedList.
-//        SortedList<Eskaneoa> sortedData = new SortedList<>(filteredData);
-//
-//        // 4. Bind the SortedList comparator to the TableView comparator.
-//        sortedData.comparatorProperty().bind(tCMS.comparatorProperty());
-
-        // 5. Add sorted (and filtered) data to the table.
         tCMS.setItems(sortedData);
-        // Editagarria egin
     }
 
     @Override
@@ -208,35 +162,6 @@ public class CMSKud implements Initializable {
         comboZerbitzua.setEditable(true);
 
         hasieratuTaula();
-
-
-//        Callback<Eskaneoa, LocalDate> cellFactory =
-//                new Callback<Eskaneoa, LocalDate>() {
-//                    public DatePickerCell call() {
-//                        return new DatePickerCell(eskaneoak);
-//                    } };
-//
-//        cLastUpdate.setCellFactory(cellFactory);
-//        cLastUpdate.setOnEditCommit(
-//                t -> {
-//                    Eskaneoa eskaneoa=t.getTableView().getItems().get(t.getTablePosition().getRow());
-//                    eskaneoa.setLastUpdate(t.getNewValue());
-//                    CMSDBKud.getInstance().dataEguneratu(eskaneoa.getUrl(),eskaneoa.getLastUpdate());
-//                });
-
-//        this.cLastUpdate.getTableView().getItems().get().getLastUpdate().setOnShowing(event -> {
-//            final TableView<T> tableView = getTableView();
-//            tableView.getSelectionModel().select(getTableRow().getIndex());
-//            tableView.edit(tableView.getSelectionModel().getSelectedIndex(), column);
-//        });
-//
-//        this.colorPicker.valueProperty().addListener((observable, oldValue, newValue) -> {
-//            if(isEditing()) {
-//                commitEdit(newValue);
-//            }
-//        });
-
-
 
     }
 }

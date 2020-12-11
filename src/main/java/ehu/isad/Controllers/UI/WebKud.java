@@ -1,5 +1,6 @@
 package ehu.isad.Controllers.UI;
 
+import ehu.isad.Controllers.DB.CMSDBKud;
 import ehu.isad.Controllers.DB.WebDBKud;
 import ehu.isad.Utils.Utils;
 import javafx.application.Platform;
@@ -13,11 +14,8 @@ import javafx.scene.layout.GridPane;
 
 import java.io.*;
 import java.net.URL;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class WebKud implements Initializable {
 
@@ -41,6 +39,7 @@ public class WebKud implements Initializable {
 
     @FXML
     void onClickScan(ActionEvent event) {
+        LocalDate now= LocalDate.now();
         textAreaLog.setWrapText(true);
         textAreaLog.setText("Kargatzen. Itxaron, mesedez....");
 
@@ -59,6 +58,8 @@ public class WebKud implements Initializable {
                 try {
                     txertatu();
                     ezabatuFitx();
+                    CMSDBKud.getInstance().dataEguneratu(this.textURL.getText(),now);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -126,6 +127,6 @@ public class WebKud implements Initializable {
     }
 
     public WebKud() {
-        System.out.println("web inst");
+
     }
 }

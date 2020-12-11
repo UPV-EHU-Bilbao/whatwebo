@@ -1,6 +1,5 @@
 package ehu.isad.Model;
 
-import javafx.scene.control.DatePicker;
 
 import java.time.LocalDate;
 

@@ -52,9 +52,6 @@ public class DBKudeatzaile {
         String query;
         String line;
 
-//            query="CREATE DATABASE whatweb2.sqlite";
-//            this.execSQL(query);
-
         while((line=bf.readLine())!=null){
             query= line;
             this.execSQL(query);
@@ -101,7 +98,6 @@ public class DBKudeatzaile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //this.conOpen(dbpath);
 
     }
 

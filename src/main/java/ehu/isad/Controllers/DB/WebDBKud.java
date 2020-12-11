@@ -1,14 +1,6 @@
 package ehu.isad.Controllers.DB;
 
-import ehu.isad.Model.Target;
-import ehu.isad.Utils.Utils;
-
 import java.io.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
 
 public class WebDBKud {
 
@@ -32,8 +24,6 @@ public class WebDBKud {
             query= line;
             dbKudeatzaile.execSQL(query);
 
-            // if line contains ikasten.io
-            //    update targets set azkenEguneraketa=now()
         }
     }
 }
