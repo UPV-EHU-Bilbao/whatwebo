@@ -22,11 +22,11 @@ Releases atalean aurkitu ahal dira bi sistementzarako instalatzaileak, baina bai
 
 ## Windows
 
-[Windows_Installer](https://www.dropbox.com/s/sn2u806lhpjh3x6/whatwebfx-1.0.exe?dl=0)
+[Windows_Installer_v1.0](https://www.dropbox.com/s/sn2u806lhpjh3x6/whatwebfx-1.0.exe?dl=0)
 
 ## Linux
 
-[Linux_Installer](https://www.dropbox.com/s/2xpsrdhg7wla49d/whatwebfx_1.0-1_amd64.deb?dl=0)
+[Linux_Installer_v1.0](https://www.dropbox.com/s/2xpsrdhg7wla49d/whatwebfx_1.0-1_amd64.deb?dl=0)
 
 ## Instalazioa
 
