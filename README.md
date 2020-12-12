@@ -20,6 +20,16 @@ https://wixtoolset.org/releases/
 WhatWeb instalatuta izan:
 https://github.com/urbanadventurer/WhatWeb
 
+## Instalatzaileak
+
+## Windows
+
+https://www.dropbox.com/s/q6847guf53jn9qr/whatwebfx-0.0.1.exe?dl=0
+
+## Ubuntu
+
+https://www.dropbox.com/s/jmpul9zvvl9wc5i/whatwebfx_0.0.1-1_amd64.deb?dl=0
+
 ## Instalazioa
 
 Defektuz .whatwebfx/ karpeta sortuko du, beharrezko fitxategi guztiekin zure erabiltzaile karpetan, beraz ez duzu ezer aldatu behar instalazioa burutzeko.
