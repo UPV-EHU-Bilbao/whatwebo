@@ -18,13 +18,15 @@ Aplikazioa Windows-erako eta Linux-erako (Debian GNU/LINUX eta deribatuak) eskur
 
 ## Instalatzaileak
 
+Releases atalean aurkitu ahal dira bi sistementzarako instalatzaileak, baina baita ere ondoren utzi dira haiekiko link-ak (v1.0):
+
 ## Windows
 
-[Windows_Installer](https://www.dropbox.com/s/q6847guf53jn9qr/whatwebfx-0.0.1.exe?dl=0)
+[Windows_Installer](https://www.dropbox.com/s/sn2u806lhpjh3x6/whatwebfx-1.0.exe?dl=0)
 
 ## Linux
 
-[Linux_Installer](https://www.dropbox.com/s/jmpul9zvvl9wc5i/whatwebfx_0.0.1-1_amd64.deb?dl=0)
+[Linux_Installer](https://www.dropbox.com/s/2xpsrdhg7wla49d/whatwebfx_1.0-1_amd64.deb?dl=0)
 
 ## Instalazioa
 
