@@ -37,14 +37,14 @@ Defektuz .whatwebfx/ karpeta sortuko du, beharrezko fitxategi guztiekin zure era
 1. Deskargatu Windows-erako instalatzailea
 2. Bi click instalatzailean, eta Ados guztiari
 
-Lehenengo aldian, sortu behar duenenan karpeta, 20 segundu behar ditu irekitzeko gutxi gorabehera.
+Lehenengo aldian, sortu behar duenenan karpeta, aplikazioak 20 segundu behar ditu irekitzeko gutxi gorabehera.
 
 ### Linux
 
 1. sudo dpkg -i linux_instalatzailea.deb
 2. Ados guztiari
 
-Lehenengo aldian, sortu behar duenenan karpeta, 10 segundu behar ditu irekitzeko gutxi gorabehera.
+Lehenengo aldian, sortu behar duenenan karpeta, aplikazioak 10 segundu behar ditu irekitzeko gutxi gorabehera.
 
 ## Dokumentazioa
 
