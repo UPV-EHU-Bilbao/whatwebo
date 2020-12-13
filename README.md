@@ -39,12 +39,16 @@ Defektuz .whatwebfx/ karpeta sortuko du, beharrezko fitxategi guztiekin zure era
 
 Lehenengo aldian, sortu behar duenenan karpeta, aplikazioak 20 segundu behar ditu irekitzeko gutxi gorabehera.
 
+Ordenagailu zahar batean egin dugu proba eta 10-15 minutu behar izan ditu irekitzeko (lehenengo aldian, gero segundu batean hasieratzen da).
+
 ### Linux
 
 1. sudo dpkg -i linux_instalatzailea.deb
 2. Ados guztiari
 
 Lehenengo aldian, sortu behar duenenan karpeta, aplikazioak 10 segundu behar ditu irekitzeko gutxi gorabehera.
+
+Ordenagailu zahar batean egin dugu proba eta 10-15 minutu behar izan ditu irekitzeko (lehenengo aldian, gero segundu batean hasieratzen da).
 
 ## Dokumentazioa
 
