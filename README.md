@@ -44,6 +44,8 @@ Defektuz .whatwebfx/ karpeta sortuko du, beharrezko fitxategi guztiekin zure era
 
 ## Dokumentazioa
 
+PDF moduan: [WhatWebFX_PDF](https://www.dropbox.com/s/pu0fef17i1rloyb/WhatWebFX_AdrianSanchez_AnderEiros_MikelIdoyaga.pdf?dl=0)
+Word moduan: [WhatWebFX_WORD](https://www.dropbox.com/s/wwo09dmtx94vjij/WhatWebFX_AdrianSanchez_AnderEiros_MikelIdoyaga.docx?dl=0)
 
 
 
